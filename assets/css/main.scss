@@ -1,28 +1,14 @@
 ---
-sitemap: false
+# Let's add a comment to make this file sass-y.
+# Change this file for any custom CSS.
 ---
 
-/*
- *
- *  HPSTR
- *
- *  Designer: Michael Rose
- *  Twitter: http://twitter.com/mmistakes
- *
-*/
+/* We need to add display:inline in order to align the '>>' of the 'read more' link */
+.post-excerpt p {
+	display:inline;
+}
 
-// Partials
-@import "variables";
-@import "mixins";
-@import "reset";
-@import "vendor/font-awesome/font-awesome";
-@import "vendor/magnific-popup/magnific-popup";
-@import "site";
-@import "typography";
-@import "syntax";
-// @import "coderay";
-@import "grid";
-@import "elements";
-@import "animations";
-@import "dl-menu";
-@import "page";
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+	"syntax"
+;
