@@ -7,7 +7,6 @@ categories: golang, code
 
 ![GoLang Logo](/assets/images/golanglogo.png)
 
-Introduction:
-=============
-
 I've been learning golang by myself this two mounth and it was amazing leaning by coding, i didnt like the language in the past but (i dont know why) but now i fucking love'it.
+
+I created two projects with this language, i have already written those projects in another language (python) but added some new features to it.
