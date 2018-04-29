@@ -12,4 +12,4 @@ def main():
     printHello()
 {% endhighlight %}
 #image
-![Image of Cyberpunk](/issets/images/post1.jpeg)
+![Image of Cyberpunk](/assets/images/post1.jpeg)

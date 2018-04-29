@@ -1,16 +1,16 @@
-name: HiheBark
-description: "interested in #Coding, #Hacking, #Cyberpunk, #FreeSoftware and i'am #dyslexic don't judge me."
-meta_description: ""
+name: hihebark
+description: "Not a #hacker but i love to find how the stuff works. and i'm a #developer for my own #fun. #Cyberpunk, #FreeSoftware and #OpenSource."
+meta_description: "Code, Cyberpunk, FreeSoftware, OpenSource"
 
 markdown: kramdown
 highlighter: rouge
 logo: true
 paginate: 15
-baseurl: /
-domain_name: 'https://hihebark.github.io/'
+baseurl: 'https://hihebark.github.io/'
+domain_name: 'https://github.io/'
 google_analytics: 'UA-XXXXXXXX-X'
 gems: [jekyll-paginate]
 
 # Details for the RSS feed generator
 url:            'https://hihebark.github.io/'
-author:         'HiheBark'
+author:         'hihebark'
