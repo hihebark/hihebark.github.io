@@ -5,7 +5,6 @@ date:   2018-04-29 19:00:00
 categories: golang, code
 ---
 
-#image
 ![GoLang Logo](/assets/images/golanglogo.png)
 
 Introduction:
