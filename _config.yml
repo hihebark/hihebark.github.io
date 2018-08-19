@@ -13,9 +13,9 @@
 # you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: whiteglass theme
-author: Yous
-description: Minimal, responsive Jekyll theme for hackers.
+title: The HiheBark page ...
+author: hihebark
+description: didn't find why i ever have this
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://hihebark.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 lang: en
@@ -32,8 +32,8 @@ exclude:
   - vendor
 
 # Social media
-twitter_username:
-twitter_image:
+twitter_username: theblackSM
+twitter_image: https://pbs.twimg.com/profile_images/1002546206302724096/sQ0uG4Th_400x400.jpg
 facebook_app_id:
 facebook_image:
 google_analytics:
