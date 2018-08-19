@@ -1,16 +1,74 @@
-name: hihebark
-description: "Not a #hacker but i love to find how the stuff works. and i'm a #developer for my own #fun. #Cyberpunk, #FreeSoftware and #OpenSource."
-meta_description: "Code, Cyberpunk, FreeSoftware, OpenSource"
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+title: whiteglass theme
+author: Yous
+description: Minimal, responsive Jekyll theme for hackers.
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://hihebark.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+lang: en
+timezone: UTC
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - Rakefile
+  - README.md
+  - LICENSE.txt
+  - CHANGELOG.md
+  - jekyll-whiteglass.gemspec
+  - screenshot.png
+  - vendor
+
+# Social media
+twitter_username:
+twitter_image:
+facebook_app_id:
+facebook_image:
+google_analytics:
+comments: true
+
+# Plugins
+plugins:
+  - jekyll-archives
+  - jekyll-paginate
+  - jekyll-sitemap
+
+# Build settings
 markdown: kramdown
-highlighter: rouge
-logo: true
-paginate: 15
-baseurl: 'https://hihebark.github.io/'
-domain_name: 'https://github.io/'
-google_analytics: 'UA-XXXXXXXX-X'
-gems: [jekyll-paginate]
+excerpt_separator: "<!-- more -->"
 
-# Details for the RSS feed generator
-url:            ''
-author:         'hihebark'
+# Outputting
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+paginate: 5
+
+# Markdown settings
+kramdown:
+  auto_ids: false
+  enable_coderay: false
+  entity_output: as_char
+  footnote_nr: 1
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  toc_levels: 1..6
+
+# jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
