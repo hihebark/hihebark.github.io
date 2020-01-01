@@ -5,5 +5,5 @@ permalink: /
 ---
 <p align="center">
   My fingerprint on the wired.
-  <img src="./index.jpeg">
+  <img src="./assets/images/cat.jpeg">
 </p>

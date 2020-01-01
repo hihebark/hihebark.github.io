@@ -13,6 +13,6 @@ style: dark # dark (default) or light
 
 listen_for_clients_preferred_style: true # true or false (default)
 
-footer: '<a href="https://lainchan.org/">lainchan</a> • <a href="https://www.eff.org/">eff</a> • <a href="https://www.wikileaks.com/">wikileaks</a> • <a href="https://www.torproject.org/">tor</a> • <a href="https://www.laquadrature.net/en/">La Quadrature du Net</a>'
+footer: 'I support: <a href="https://lainchan.org/">lainchan</a> • <a href="https://www.eff.org/">eff</a> • <a href="https://www.wikileaks.com/">wikileaks</a> • <a href="https://www.torproject.org/">tor</a> • <a href="https://www.laquadrature.net/en/">La Quadrature du Net</a>'
 
 markdown: kramdown
