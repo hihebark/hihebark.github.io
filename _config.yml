@@ -1,13 +1,18 @@
 theme: jekyll-theme-console
+
 plugins:
   - jekyll-seo-tag
+
 header_pages:
   - index.md
   - about.md
   - project.md
-  - blogs.md
-style: dark # dark (default) or light
-listen_for_clients_preferred_style: false # true or false (default)
+  - contact.md
 
-footer: '<a href="https://github.com/hihebark">Github</a> • <a href="https://twitter.com/virtualstruct">Twitter</a> • <a href="https://www.instagram.com/virtualstruct">Instagram</a>'
+style: dark # dark (default) or light
+
+listen_for_clients_preferred_style: true # true or false (default)
+
+footer: '<a href="https://lainchan.org/">lainchan</a> • <a href="https://www.eff.org/">eff</a> • <a href="https://www.wikileaks.com/">wikileaks</a> • <a href="https://www.torproject.org/">tor</a> • <a href="https://www.laquadrature.net/en/">La Quadrature du Net</a>'
+
 markdown: kramdown

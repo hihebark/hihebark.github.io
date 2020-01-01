@@ -5,10 +5,14 @@ permalink: /projects
 ---
 
 # Projects
+
 Here is a list of projects that i'm proud of.
-* [Vimd](https://github.com/hihebark/vimd)
-* [Duxe](https://github.com/hihebark/Duxe)
-* [godirsearch](https://github.com/hihebark/godirsearch)
-* [Cryptor](https://github.com/hihebark/CrypTor)
-* [dotfiles](https://github.com/hihebark/dotfiles)
-* [MyScripts](https://github.com/hihebark/MyScripts)
+
+
+* [Vimd](https://hihebark.github.io/vimd/) - In browser markdown previewer.
+* [nodeproof](https://github.com/hihebark/nodeproof) - node.js template for a backend project.
+* [Duxe](https://github.com/hihebark/Duxe) - Information gathering tool.
+* [godirsearch](https://github.com/hihebark/godirsearch) - Search for hidden and unhidden path's on a website.
+* [Cryptor](https://github.com/hihebark/CrypTor) - (deprecated).
+* [dotfiles](https://github.com/hihebark/dotfiles) - Dotfiles.
+* [MyScripts](https://github.com/hihebark/MyScripts) - All day scripts.
