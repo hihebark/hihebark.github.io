@@ -16,12 +16,12 @@ The year 2019 ended pretty well, I want to remember this moment, so that I will 
 - I worked with nodejs. I’m saying this because I never thought that I will write a js code, but i did and it was a good experience.
 - I developed an admin dashboard and it was a mess, after that I know that html and css are not my cup of coffee.
 
-Hope this new year will be great for all of us, I will not set new year resolutions because the last time I did I didn't achieve them so none for this year.
+Hope this new year will be great for all of us, I will not set new year resolutions because the last time I did, I didn't achieve them so none for this year.
 <p align="center">
-            (__)                    
-            (oo)    o     /| /|/|_  
-           / \/    /    /      _ /  
-          /  _\===   ___\_____/___  
-      ___|__/ |/\    (___________(_)
+           (__)                    
+           (oo)    o     /| /|/|_  
+           / \/    /     /      _ /  
+          /  _\===    ___\_____/___  
+     *___|__/ |/\    (___________(_)
       none context image cow.jpeg
 </p>
