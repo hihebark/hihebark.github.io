@@ -6,3 +6,7 @@ layout: default
 
 <hr>
 Tags: {{ page.tags | join: "::" | upcase }}
+
+{% if page.comments %}
+  {%- include comments.html -%}
+{% endif %}
