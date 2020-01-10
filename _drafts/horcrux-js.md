@@ -21,4 +21,14 @@ This tool has no security feature if you put all the Horcruxes into the same fol
 </p>
 
 ## Implementation
-I choose to write this module with node.js because i have a privat project that need this solution and need it as a package. Before seeing this idea i was thinking to encrypt each file alone, but with this i will be able to do that with just one line of code.
+I'am choosing `node.js` as language to write the implementation cause i didn't write a module with `node.js` before.
+After reading the project by jesseduffield and found a great module for `Shamir Secret Sharing` called [secrets.js-grempe](https://github.com/grempe/secrets.js) at the begining i was rewriting it by myself, but i dont have time (perhapse another time). I started creating a class ```Horcrux``` that have ```split``` and ```bind``` as method, ```Horcrux``` take as a parametre options(**Object**) like so:
+```javascript
+new Horcrux({
+  filename: 'secret_diary.txt',
+  output: './secret_diary_folder/',
+  parts: 5,
+  threshold: 5
+});
+```
+Form now i had all i need from the user (_me_). I started with ```split```, the split method start creating new random secret using **secrets.js-grempe**, i was giving `32` as a a parametre but it was giving me `32 bit` and i wanted `32 bytes` so give it `secrets.random(128)` 
