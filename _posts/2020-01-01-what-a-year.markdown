@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "What a year"
+title:  "/Posts/What a year"
 date:   2020-01-01 22:01:00 +0100
 tags: [misc, diary, personal]
 comments: true

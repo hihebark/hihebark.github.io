@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Horcrux-js"
+title:  "/Posts/Horcrux-js"
 date:   2020-01-05 12:32:45 +0100
 tag: [node.js, module, crypto]
 categories: tech
