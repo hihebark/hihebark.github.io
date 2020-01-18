@@ -4,8 +4,9 @@ layout: default
 
 {{ content }}
 
-<hr>
-Tags: {{ page.tags | join: "::" | upcase }}
+<br>
+<hr style="border-style: dashed">
+Tags: {{ page.tags | join: ", " }}
 
 {% if page.comments %}
   {%- include comments.html -%}
