@@ -13,3 +13,11 @@ listen_for_clients_preferred_style: false # true or false (default)
 
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true

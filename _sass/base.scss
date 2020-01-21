@@ -81,7 +81,11 @@ textarea { vertical-align: top; }
 figure.highlight { margin: 5px 0; }
 pre { background-color: var(--background-color);  border: none;  padding: 0;  margin: 0;  overflow:auto;  font-size: $base-font-size;  color: var(--text-color);  line-height: 1.7 !important;  font-family: $base-font-family !important; }
 code { background-color: #0f0f0f; border-radius: 3px; padding: 1px; }
-.highlight { background-color: #0f0f0f; border-radius: 3px; padding: 5px; }
+.highlight {
+  margin: 4px 0;
+  border-left: 1px solid #808080;
+  border-right: 1px solid #808080;
+}
 .highlight .hll { background-color: var(--code-color-2); }
 .highlight .c { color: var(--code-color-1); font-style: italic } /* Comment */
 .highlight .err { color: var(--code-color-3); background-color: var(--code-color-4); } /* Error */

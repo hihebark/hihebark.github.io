@@ -20,7 +20,7 @@ This tool has no security feature if you put all the Horcruxes into the same fol
 
 ## Implementation
 I'am choosing `node.js` as a language to write the implementation cause I didn't write a package with `node.js` before.
-After reading the project by jesseduffield and found a great module for `Shamir Secret Sharing` called [secrets.js-grempe](https://github.com/grempe/secrets.js) at first I was rewriting it by myself, but I didn't have time (perhaps another time). I started creating a class `Horcrux` that have `split` and `bind` as a method, `Horcrux` take as a parameter options(**Object**):
+After reading the project by jesseduffield and found a great module for `Shamir Secret Sharing` called [secrets.js-grempe](https://github.com/grempe/secrets.js) at first I was rewriting it by myself, but I didn't have time (perhaps another time). I started creating a class `Horcrux` that have `split` and `bind` as a method, `Horcrux` take as a parameter options(__Object__):
 
 ```javascript
 new Horcrux({
@@ -31,7 +31,7 @@ new Horcrux({
 });
 ```
 
-Form now i had all i need from the user (_me_). I started with `split`, the split method start creating new random secret using **secrets.js-grempe**, with: `secrets.random(128)`. Now we need to loop over each parts and creating the header, the header is just a json like so:
+Form now i had all i need from the user (_me_). I started with `split`, the split method start creating new random secret using __secrets.js-grempe__, with: `secrets.random(128)`. Now we need to loop over each parts and creating the header, the header is just a json like so:
 
 ```json
 {
@@ -39,7 +39,7 @@ Form now i had all i need from the user (_me_). I started with `split`, the spli
     "timestamp":1579294138,
     "index":1,
     "total":5,
-    "keyFragment":"8013e036d8c332caba8465e14464063c4ba3a49e397905c9fc667c65bdc0713d779",
+    "keyFragment":"8013e036d8c332caba8465e...05c9fc667c65bdc0713d779",
     "threshold":3
 }
 ```
