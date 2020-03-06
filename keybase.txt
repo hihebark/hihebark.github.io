@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/hihebark
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://hihebark.github.io
+  * I am hihebark (https://keybase.io/hihebark) on keybase.
+  * I have a public key with fingerprint 85DE 1C6D 33E8 5295 4A39  946C 6522 F407 944F A10B
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120c7754e0abe5543e4259e155e788adc53fece356f14ce0075093d30edc7ccd5fa0a",
+      "fingerprint": "85de1c6d33e852954a39946c6522f407944fa10b",
+      "host": "keybase.io",
+      "key_id": "6522f407944fa10b",
+      "kid": "0101fccd564e1553f0d4033534ebdfe749a59adade833854393b8bf54573a95eae300a",
+      "uid": "82f081eef70b76e4e65ec91bddceeb19",
+      "username": "hihebark"
+    },
+    "service": {
+      "hostname": "hihebark.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1583523443,
+  "expire_in": 157680000,
+  "prev": "963e42c1eeba7d48b5568e2c7f54841c92945c6aa9ad4ef3fdc51479fa73deec",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMNuAnicbVJ7UFRVHF4o13iU4NSQDYNxlZghHvfec8997CYyWGqS4WMmBIztPs7d
+vQPsbnuXlYeEI2HqyoDJEENCMDHYMFmQNEkyhC/GwIEksUhMQKIlHUdkGXugdi/l
+P03nnzPnnO/7zvf9fr9zTz5mCA5AmH9pTXpzSMDA6YYCQ47QqpZggkMqwkwlWC5a
+3FCehFS3JVeRMBOGEyQuMgykEM4LCEIKIIqEHCIgRAzL8pIIgYxEBCAtE5SIcJyB
+OAckgCNJZERRgjKP81g8Jit2K3I5XYrdrcmyUEKESEsAIBaSHKR4wHEULdKQJGUK
+ZziKknkCFzSizaHqDM2cwKsoUXFod9rBsmjvf/CPfOOErH9PU7pXIOMShQMAAYUE
+SUYMxfGQ4yVeQiwArBaLAwIryJCCDOA5iHgE8EXfBYtyLCnjLIGQzOACQyMK0RCJ
+HCFIkoiQQHA6UEUuO5+PNLRNsSGBd+VipfGYdutRRKQXVk/yH0SiVXHbCoR/Ujld
+DrdDdOTp7263UzXpfHeRUyfsQoLlXymLoNglrZoaw4NcquKwYyZCQ4puRdcmIAsg
+CSgKxGOo0Km4kEXREZChWVxb+j/Io0lytN5LUUsl8IxEsQKENItIkdGqwFKEyJEc
+BUWa57U6UUgGstZrgmI4mWeAhJCI6eHetjswE6fZ5K2apKpY7by7wIWw0jOndz5u
+CAg2GJcE6lNmCA4KezR7CRuWPcwIWVkXcekLIxM3feR6ZGuhu8tHtp9IyTD/vLk3
+q/T79gpjwtptc2/k7W8+mlX1w/mm+pn1KTc3nQzNLptN8MbVNGwN8by8VPzp4rQn
+5cQ8KL/9Y3dk363PLiidRda83XVx49kRvV3zV+7UXv24xPXOwlNfn22E+NwVY/XE
+aPD14j/fXO4qb/kmsMSUmhhB2qOe2Ds8bLvY/+WZquHGzytjyUMRYeb6jRsyX0Dr
+fr2a9vythbPW/Y7jg8mDQZ8meWuyWt7rH549FyMNBC2b2Qb7hiZX7PFOj43U/fWg
+2nf+xoPJ8F7vxuzf5Y6I/orc54p3xyw8a8wZ5T6aAkdfC1kbdezA5sjG+aJxyW+q
+SCYrayt/29E2dqq240ZYdZcf+nzF/ui7NyeGWj/s9DhTX6kCFjs2eQSkbppZ19Ng
+Ki/zX8jt+Da/p+FO9+U1AUL4eGxQ0ICp5W7tgU/Uye11bSOZSS/ajmf+cW3XQfrd
+CWFL2s6p+96O8k5u38Ouk8m1+/b6+hZSEl5t61pZeNic33QsNnzrjgyfOj22esWq
+1wOfmVnVvWe8xfuSsSZbzh6ilr8/lUOQJQPmmKiDDjGHi+7+pb0nfbgidMzwFn8p
+cqTMfOiD2dF6wAm3/eamuXT22pqZ3sNJ86fKG+/bnj6gqvcGeakeRX/VzHir5rov
+hy/5bnvz6rR7W0L/BqPSzJM=
+=Mrct
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/hihebark
+
+==================================================================
