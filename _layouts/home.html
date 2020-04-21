@@ -6,13 +6,14 @@ layout: default
 {% assign contentwonl = content | strip_newlines %} {% unless contentwonl == ""  %} <br /> {% endunless %} <!-- add line break if there is any content -->
 
 {%- if site.posts.size > 0 -%}
-  <h2>$ ls -lh ~/Posts/</h2>
+  <h2>$ ls -l ~/Posts/</h2>
   <ul>
     {%- for post in site.posts -%}
     <li>
       {%- assign date_format = "%Y-%m-%d" -%}
-      [ {{ post.date | date: date_format }} ] <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      -rw-r--r-- root root {{ post.date | date: date_format }} <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
     </li>
     {%- endfor -%}
   </ul>
+  <h2>$ █</h2>
 {%- endif -%}
