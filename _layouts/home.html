@@ -11,7 +11,7 @@ layout: default
     {%- for post in site.posts -%}
     <li>
       {%- assign date_format = "%Y-%m-%d" -%}
-      -rw-r--r-- root root {{ post.date | date: date_format }} <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      -rw-r--r-- root root {{ post.date | date: date_format }} <a href="{{ post.url | relative_url }}">{{ post.title | escape }}.md</a>
     </li>
     {%- endfor -%}
   </ul>
