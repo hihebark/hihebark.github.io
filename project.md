@@ -9,6 +9,7 @@ permalink: /projects
 Here is a list of projects that i'm proud of.
 
 
+* [Bevor](https://github.com/hihebark/bevor) -  Payloads / HTTP request validator.
 * [Vimd](https://hihebark.github.io/vimd/) - In browser markdown previewer.
 * [nodeproof](https://github.com/hihebark/nodeproof) - node.js template for a backend project.
 * [Duxe](https://github.com/hihebark/Duxe) - Information gathering tool.
