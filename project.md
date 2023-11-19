@@ -1,13 +1,10 @@
 ---
-title: /projects
+title: projects
 layout: page
 permalink: /projects
 ---
 
 # Projects
-
-Here is a list of projects that i'm proud of.
-
 
 * [Bevor](https://github.com/hihebark/bevor) -  Payloads / HTTP request validator.
 * [Vimd](https://hihebark.github.io/vimd/) - In browser markdown previewer.
@@ -18,3 +15,6 @@ Here is a list of projects that i'm proud of.
 * [Horcrux-js](https://github.com/hihebark/horcrux-js) - Split file into encrypted horcruxes.
 * [dotfiles](https://github.com/hihebark/dotfiles) - Dotfiles.
 * [MyScripts](https://github.com/hihebark/MyScripts) - All day scripts.
+
+---
+*All these projects are just me trying to learn how things works.*

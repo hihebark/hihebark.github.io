@@ -4,10 +4,15 @@ layout: home
 permalink: /
 ---
 
-Can’t find a description to put here So, I just spend almost all of my time on the wired [coding](https://github.com/hihebark), ~~hacking~~, learning new things (Self-taught), listening to good music, watching [movies, TV-Shows] and sometimes I go for hiking or just walking and admiring.
-
-<p align="center">
-  <img src="./assets/images/dog.jpeg" alt="dog" width="400">
+<p>
+,___,
+[O.o]
+/)__)
+-"--"- Into the WIRED
 </p>
 
-You can contact me on my <a href="mailto:n.amara@pm.me">email</a> if you like to discuss a specific subject or just to chat.
+---
+
+A Back-end Developer with a robust background in the development of business applications from initial analysis to deployment. Proficiently utilizing a variety of technology stacks, including but not limited to Laravel, Node.js, Linux, and others, to craft scalable, secure, and user-friendly solutions.
+
+Can be reach in: <a href="https://github.com/hihebark">Github</a> <a href="https://twitter.com/virtualstruct">X</a> <a href="https://www.linkedin.com/in/nezliamara/">LinkedIn</a> <a href="https://www.instagram.com/virtualstruct/">Instagram</a>

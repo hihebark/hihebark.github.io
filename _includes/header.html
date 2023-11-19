@@ -1,13 +1,11 @@
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 <header>
-  <a href="/" style="text-decoration: none">
-    <p align="center">
-    ,___,
-    [O.o]
-    /)__)
-    -"--"- Into the wired
-    </p>
+  <p align="center">
+  <a href="/" class="logo">
+    <img src="assets/images/logo.png">
+    INTO THE WIRED
   </a>
+  </p>
   <div class="menu">
     <ul>
       {%- for path in page_paths -%}

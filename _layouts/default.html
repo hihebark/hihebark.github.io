@@ -3,7 +3,7 @@
 
   {%- include head.html -%}
 
-  <body>
+  <body {% if page.title == 'portfolio' %}style="background:#042"{% endif %}>
     <div class="container">
 
       {%- include header.html -%}
