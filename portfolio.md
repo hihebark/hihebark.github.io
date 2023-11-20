@@ -40,4 +40,4 @@ background: "#042"
 - Agile Methodologies
 
 ## Contact Me
-<p class="bio">Let's connect! Feel free to reach out to me at [n.amara@protonmail.ch]. You can also find me on LinkedIn: [LinkedIn](https://www.linkedin.com/in/nezliamara).</p>
+<p>Let's connect! Feel free to reach out to me at [n.amara@protonmail.ch]. You can also find me on: <a href="https://github.com/hihebark">Github</a> <a href="https://twitter.com/virtualstruct">X</a> <a href="https://www.linkedin.com/in/nezliamara/">LinkedIn</a> <a href="https://www.instagram.com/virtualstruct/">Instagram</a></p>
