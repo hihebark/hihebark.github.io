@@ -1,10 +1,9 @@
 ---
-title: projects
+title: Projects
 layout: page
 permalink: /projects
+background: "#003a44"
 ---
-
-# Projects
 
 * [Bevor](https://github.com/hihebark/bevor) -  Payloads / HTTP request validator.
 * [Vimd](https://hihebark.github.io/vimd/) - In browser markdown previewer.
@@ -17,4 +16,4 @@ permalink: /projects
 * [MyScripts](https://github.com/hihebark/MyScripts) - All day scripts.
 
 ---
-*All these projects are just me trying to learn how things works.*
+*PS: All these projects are just me trying to learn how things works.*

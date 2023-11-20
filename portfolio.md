@@ -1,13 +1,14 @@
 ---
-title: portfolio
+title: Portfolio
 layout: page
 permalink: /portfolio
+background: "#042"
 ---
 
 # Amara NEZLI - Node.js / Laravel Back-End Developer
 
 ## About Me
-Hi, I'm Amara Nezli, a dedicated Back-End Developer with a solid background in developing business applications from initial analysis to deployment. I specialize in utilizing various technologies, including Laravel, Node.js, Linux, and others, to create scalable, secure, and user-friendly solutions.
+<p class="bio">Hi, I'm Amara Nezli, a dedicated Back-End Developer with a solid background in developing business applications from initial analysis to deployment. I specialize in utilizing various technologies, including Laravel, Node.js, Linux, and others, to create scalable, secure, and user-friendly solutions.</p>
 
 ## Resume
 
@@ -39,4 +40,4 @@ Hi, I'm Amara Nezli, a dedicated Back-End Developer with a solid background in d
 - Agile Methodologies
 
 ## Contact Me
-Let's connect! Feel free to reach out to me at [n.amara@protonmail.ch]. You can also find me on LinkedIn: [LinkedIn](https://www.linkedin.com/in/nezliamara).
+<p class="bio">Let's connect! Feel free to reach out to me at [n.amara@protonmail.ch]. You can also find me on LinkedIn: [LinkedIn](https://www.linkedin.com/in/nezliamara).</p>
