@@ -1,6 +1,11 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,700');
 
+@font-face {
+    font-family: "Devans";
+    src: url(fonts/Devans-51Z4x.otf) format("opentype");
+}
+
 /**
  * Style variables
  */
@@ -20,7 +25,7 @@ p, ul, ol { margin: 0px;  color: var(--text-color); }
 a { text-decoration: underline;  color: var(--link-color); }
 a:hover { color: var(--background-color); background-color: var(--base-color); }
 .primary-text { color: var(--primary-color); }
-p.bio::first-letter { float: left; font-size: 75px; line-height: 60px; padding: 10px; color: #00ff7e; font-family: UnifrakturMaguntia, sans-serif }
+p.bio::first-letter { float: left; font-size: 75px; line-height: 60px; padding: 10px; color: #00ff7e; font-family: Devans, sans-serif }
 @media only screen and (max-device-width: 500px) { * { font-size: $mobile-font-size !important; } }
 /*h1:before { content: "#";  margin-right: 9px; }
 h2:before { content: "##";  margin-right: 9px; }
@@ -54,7 +59,7 @@ p { word-wrap: break-word;  word-break: break-word;  white-space: pre-wrap; }
 header { margin-top: 25px; }
 .logo { text-decoration: none; margin: 0; }
 .logo:hover { text-decoration: none; margin: 0; }
-footer { color: var(--text-color);  border-top: var(--border);  margin: 20px auto 15px;  padding-top: 10px;  text-align: right; margin-bottom: 25px; }
+footer { color: var(--text-color);  border-top: var(--border);  border-bottom: var(--border); margin: 20px auto 15px; text-align: right; margin-bottom: 25px; }
 .center { display: block; margin-left: auto; margin-right: auto; }
 
 /**
