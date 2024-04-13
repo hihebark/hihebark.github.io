@@ -3,8 +3,8 @@
 
   {%- include head.html -%}
 
-  <body {% if page.background %} style="background:{{ page.background }}" {% endif %}>
-    <div class="container">
+  <body>
+    <div class="container" {% if page.background %} style="background-color:{{ page.background }}" {% endif %}>
 
       {%- include header.html -%}
 

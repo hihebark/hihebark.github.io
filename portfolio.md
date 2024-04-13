@@ -2,7 +2,7 @@
 title: Portfolio
 layout: page
 permalink: /portfolio
-background: "#042"
+background: "#44003980"
 ---
 
 # Amara NEZLI - Node.js / Laravel Back-End Developer
