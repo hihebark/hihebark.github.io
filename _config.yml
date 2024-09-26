@@ -6,7 +6,7 @@ plugins:
 header_pages:
   - index.md
   - portfolio.md
-  - project.md
+#  - project.md
 
 style: dark # dark (default) or light
 

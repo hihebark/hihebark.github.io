@@ -5,39 +5,48 @@ permalink: /portfolio
 background: "#44003980"
 ---
 
-# Amara NEZLI - Node.js / Laravel Back-End Developer
+# **About Me**
 
-## About Me
-<p class="bio">Hi, I'm Amara Nezli, a dedicated Back-End Developer with a solid background in developing business applications from initial analysis to deployment. I specialize in utilizing various technologies, including Laravel, Node.js, Linux, and others, to create scalable, secure, and user-friendly solutions.</p>
+I am a passionate Backend Developer with over five years of experience working with the Laravel / Node.js frameworkand a wide range of backend technologies. I specialize in building scalable, secure, and high-performance systems from the ground up, ensuring smooth integration with mobile and web platforms. With hands-on experience in Linux, Docker and API development, I can handle full-cycle software development.
 
-## Resume
+I am always exploring new technologies and staying updated with industry trends, ensuring that I deliver optimized and innovative solutions to my clients.
 
-### Node.js & Laravel Back-End Developer at Developatic (May 2020 – July 2023)
-- Crafted multiple projects from scratch, e.g., Gratify, Docminute, Zer, HeyU.
-- Streamlined operations by refactoring and migrating legacy code and data.
-- Developed and maintained a CI/CD pipeline, reducing time-to-deployment.
+# **Technical Skills**
 
-### Node.js Back-End Developer at PiLabs (January 2019 – March 2020)
-- Led the design of a POS solution for automotive spare parts.
-- Utilized Node.js to create server-side applications.
+- **Languages & Frameworks**: PHP (Laravel), Node.js, Python, Go
+- **Databases**: MySQL, PostgreSQL, MongoDB, Redis
+- **Tools & Platforms**: Docker, Linux, Git, AWS, Google Cloud Platform (GCP), CI/CD, WebSockets, RESTful APIs
+- **Other**: Real-time Systems, API Design, Agile Methodologies
 
-## Skills
+# **Work Experience**
 
-### Technical Skills
-- Laravel / PHP
-- Node.js
-- Python
-- Go
-- Database Design & Administration
-- Gnu/Linux
-- Docker
-- Automation scripting
+### Full-stack Developer at Self-employed
 
-### Soft Skills
-- Adaptability
-- Problem Identification
-- Strong Written Communication
-- Agile Methodologies
+- Developed features and fixed issue in several applications.
+- Created and designed a car sharing application as requested by the client [**Zirak**](https://zirak.info).
 
-## Contact Me
-<p>Let's connect! Feel free to reach out to me at [n.amara@protonmail.ch]. You can also find me on: <a href="https://github.com/hihebark">Github</a> <a href="https://twitter.com/virtualstruct">X</a> <a href="https://www.linkedin.com/in/nezliamara/">LinkedIn</a> <a href="https://www.instagram.com/virtualstruct/">Instagram</a></p>
+**Tech Stack**: Node.js, Laravel, SQL, WHM, GCP, Web Socket.
+
+### Node.js & Laravel Backend Developer at Developatic
+
+- Led the development of multiple projects from scratch, including **Gratify**, [**Docminute**](https://docminute.app), **Zer**, and [**HeyU**](https://heyu.paris).
+- Refactored and migrated legacy code and data, enhancing the adoption of new features [**Sherpas**](https://sherpas.com).
+- Spearheaded the creation and maintenance of a CI/CD pipeline, reducing time-to-deployment.
+- Integrated 3rd-party APIs such as Stripe and built scalable, secure APIs to serve mobile and web applications.
+
+**Tech Stack**: Laravel, Node.js, SQL/NoSQL, Docker, AWS, GCP
+
+### Node.js Backend Developer at Pilabs
+
+- Designed and developed a POS solution for the automotive industry, handling transactions, inventory, and reporting.
+
+**Tech Stack**: Node.js, Python, Java Android, AWS IAM, AWS S3, NoSQL
+
+<p align="center">
+  <img src="{{ site.baseurl }}/assets/images/hr.png" width="300px" alt="">
+</p>
+
+# **Get In Touch**
+
+I am always excited to take on new challenges. If you're interested in working with me or would like to discuss potential opportunities, feel free to reach out via [email](mailto:n.amara@protonmail.ch).
+You can also view my code and projects on [GitHub](https://github.com/hihebark).
