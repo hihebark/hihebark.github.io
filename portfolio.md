@@ -11,19 +11,23 @@ I am a passionate Backend Developer with over five years of experience working w
 
 I am always exploring new technologies and staying updated with industry trends, ensuring that I deliver optimized and innovative solutions to my clients.
 
-# **Technical Skills**
+# **Technical and Soft Skills**
 
 - **Languages & Frameworks**: PHP (Laravel), Node.js, Python, Go
 - **Databases**: MySQL, PostgreSQL, MongoDB, Redis
-- **Tools & Platforms**: Docker, Linux, Git, AWS, Google Cloud Platform (GCP), CI/CD, WebSockets, RESTful APIs
-- **Other**: Real-time Systems, API Design, Agile Methodologies
+- **Tools & Platforms**: Docker, Linux, Git, AWS, GCP, CI/CD, Web-Sockets, RESTful APIs
+- **Other**: Agile Methodologies, Problem Identification, Adaptability
 
 # **Work Experience**
 
 ### Full-stack Developer at Self-employed
 
-- Developed features and fixed issue in several applications.
-- Created and designed a car sharing application as requested by the client [**Zirak**](https://zirak.info).
+- Troubleshot and resolved issues, enhancing application stability and user experience.
+- Designed and implemented a car-sharing application using Web-Socket for real-time communication to meet client specifications [**Zirak**](https://zirak.info).
+- Utilized Node.js and Laravel to build scalable and secure server-side logic.
+- Managed SQL databases and ensured efficient data handling and retrieval processes.
+- Configured and deployed several applications.
+
 
 **Tech Stack**: Node.js, Laravel, SQL, WHM, GCP, Web Socket.
 
