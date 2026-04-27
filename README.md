@@ -1,14 +1,26 @@
-[SOURCE](https://github.com/b2a3e8/jekyll-theme-console/tree/gh-pages)
+# hihebark.github.io
 
-## Development
+Personal portfolio — [hihebark.github.io](https://hihebark.github.io)
 
-To set up your environment to develop this theme, run `bundle install`.
+## Stack
 
-Your theme is setup just like a normal Jekyll site! To test your theme, run `bundle exec jekyll serve` and open your browser at `http://localhost:4000`. This starts a Jekyll server using your theme. Add pages, documents, data, etc. like normal to test your theme's contents. As you make modifications to your theme and to your content, your site will regenerate and you should see the changes in the browser after a refresh, just like normal.
+Static HTML/CSS/JS. No build step, no framework.
 
-When your theme is released, only the files in `_layouts`, `_includes`, `_sass` and `assets` tracked with Git will be bundled.
-To add a custom directory to your theme-gem, please edit the regexp in `jekyll-theme-console.gemspec` accordingly.
+- `index.html` — home page with interactive terminal
+- `portfolio.html` — about, skills, work experience
+- `projects.html` — open source & professional work
+- `404.html` — custom error page
+- `css/style.css` — all styles
+- `js/main.js` — scroll reveal, terminal (autoplay + interactive shell, GitHub API)
+
+## Local development
+
+```bash
+npx serve .
+```
+
+Then open `http://localhost:3000`.
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+[MIT](LICENSE.txt)
