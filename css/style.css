@@ -266,6 +266,21 @@ ul li::before { content: '-'; color: var(--green); margin-right: 8px; }
   padding: 1px 7px;
 }
 
+/* ── PROFESSIONAL CARDS ── */
+.card-pro h3 { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.card-title-link { color: var(--green); text-decoration: none; }
+.card-title-link:hover { background: none; color: var(--green); text-decoration: underline; }
+.badge-private {
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid var(--border-dim);
+  color: var(--muted);
+  padding: 1px 6px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .note {
   margin-top: 32px;
   color: var(--muted);

@@ -23,14 +23,14 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
 // ── Terminal ────────────────────────────────────────
 const termEl = document.querySelector('.terminal');
-if (!termEl) { /* no terminal on this page */ }
-else {
-  const body   = termEl.querySelector('.terminal-body');
-  let ghData   = null;
+if (termEl) {
+  const body    = termEl.querySelector('.terminal-body');
+  let ghData    = null;
+  let contribs  = null;
   let inputWrap = null;
-  let inputEl  = null;
-  const hist   = [];
-  let histIdx  = -1;
+  let inputEl   = null;
+  const hist    = [];
+  let histIdx   = -1;
 
   const scroll = () => { body.scrollTop = body.scrollHeight; };
 
@@ -62,6 +62,7 @@ else {
     await delay(90);
   }
 
+  // ── GitHub user fetch ───────────────────────────
   async function fetchGH() {
     try {
       const res = await fetch(`https://api.github.com/users/${GH}`);
@@ -70,6 +71,39 @@ else {
     } catch { /* network error */ }
   }
 
+  // ── Contributions fetch ─────────────────────────
+  async function fetchContribs() {
+    try {
+      const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${GH}?y=last`);
+      const d = await res.json();
+      contribs = d;
+    } catch { /* unavailable */ }
+  }
+
+  // ── Sparkline renderer ──────────────────────────
+  function sparkline(weeks = 16) {
+    if (!contribs?.contributions) return null;
+    const days = contribs.contributions.slice(-(weeks * 7));
+    const totals = [];
+    for (let i = 0; i < weeks; i++) {
+      totals.push(days.slice(i * 7, i * 7 + 7).reduce((s, d) => s + d.count, 0));
+    }
+    const max = Math.max(...totals, 1);
+    const bars = ' ▁▂▃▄▅▆▇█';
+    return totals.map(v => bars[Math.round((v / max) * 8)]).join('');
+  }
+
+  function contribLines() {
+    const graph = sparkline();
+    if (!graph) return null;
+    const total = contribs.total?.lastYear ?? Object.values(contribs.total ?? {})[0] ?? '?';
+    return [
+      `last 16w  <span style="letter-spacing:2px">${graph}</span>`,
+      `total     ${total} contributions this year`,
+    ];
+  }
+
+  // ── Input ───────────────────────────────────────
   function enableInput() {
     const wrap = document.createElement('div');
     wrap.className = 'input-line';
@@ -109,14 +143,15 @@ else {
     }
   }
 
+  // ── Commands ────────────────────────────────────
   const cmds = {
-    help:  () => out([
+    help: () => out([
       'commands:',
       '&nbsp; whoami   &mdash; about me',
       '&nbsp; skills   &mdash; tech stack',
       '&nbsp; projects &mdash; open source work',
       '&nbsp; contact  &mdash; get in touch',
-      '&nbsp; github   &mdash; stats',
+      '&nbsp; github   &mdash; stats &amp; contributions',
       '&nbsp; clear    &mdash; clear screen',
     ]),
     whoami: () => out([
@@ -146,15 +181,20 @@ else {
       'x        <a href="https://twitter.com/virtualstruct">@virtualstruct</a>',
     ]),
     github: () => {
-      if (ghData) return out([
-        `public_repos  ${ghData.public_repos}`,
-        `followers     ${ghData.followers}`,
-        `following     ${ghData.following}`,
-        `member since  ${new Date(ghData.created_at).getFullYear()}`,
-        '',
-        `<a href="https://github.com/${GH}">github.com/${GH}</a>`,
-      ]);
-      return out([`<a href="https://github.com/${GH}">github.com/${GH}</a>`]);
+      const lines = [];
+      if (ghData) {
+        lines.push(
+          `public_repos  ${ghData.public_repos}`,
+          `followers     ${ghData.followers}`,
+          `following     ${ghData.following}`,
+          `member since  ${new Date(ghData.created_at).getFullYear()}`,
+        );
+      }
+      const cl = contribLines();
+      if (cl) { lines.push('', ...cl); }
+      if (!lines.length) lines.push(`<a href="https://github.com/${GH}">github.com/${GH}</a>`);
+      else lines.push('', `<a href="https://github.com/${GH}">github.com/${GH}</a>`);
+      return out(lines);
     },
     clear: () => {
       Array.from(body.children).forEach(el => { if (el !== inputWrap) el.remove(); });
@@ -166,10 +206,12 @@ else {
     fn ? fn() : out([`command not found: ${cmd} &mdash; type <span class="g">help</span>`]);
   }
 
+  // ── Autoplay ────────────────────────────────────
   async function autoplay() {
-    const ghFetch = fetchGH();
+    const [ghFetch, contribFetch] = [fetchGH(), fetchContribs()];
 
     await delay(500);
+
     await typeLine('whoami');
     await out([
       'amara nezli &mdash; backend developer',
@@ -188,6 +230,16 @@ else {
       ], 60);
     } else {
       await out([`<a href="https://github.com/${GH}">github.com/${GH}</a>`]);
+    }
+
+    const loading2 = line('<span class="tdim">fetching...</span>');
+    await contribFetch;
+    loading2.remove();
+    const cl = contribLines();
+    if (cl) {
+      await out(cl, 60);
+    } else {
+      await out(['contributions unavailable']);
     }
 
     await typeLine('echo $STATUS');
