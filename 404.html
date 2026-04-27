@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VirtualStruct &mdash; 404</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    main {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 0;
+      animation: none;
+    }
+    .err-code {
+      font-size: clamp(5rem, 18vw, 9rem);
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 12px;
+      line-height: 1;
+      animation: glitch 4s ease infinite;
+    }
+    .err-output {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 2;
+    }
+    .err-output .tline { color: var(--text); }
+    .err-output .err   { color: #ff4d4d; }
+    .err-hint {
+      margin-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .err-hint a { color: var(--green); text-decoration: none; }
+    .err-hint a:hover { color: #000; background: var(--green); }
+    .blink {
+      color: var(--green);
+      animation: blink 1s infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <a href="/" class="logo">
+        <img src="/assets/images/logo2.png" width="90" alt="VirtualStruct">
+        <span>INTO THE WIRED</span>
+      </a>
+      <nav>
+        <a href="/">~/Index</a>
+        <a href="/portfolio.html">~/Portfolio</a>
+        <a href="/projects.html">~/Projects</a>
+      </nav>
+    </header>
+
+    <main>
+      <p class="err-code">404</p>
+
+      <div class="err-output">
+        <p class="tline">$ cd /requested-path</p>
+        <p class="err">bash: cd: /requested-path: No such file or directory</p>
+      </div>
+
+      <p class="err-hint">
+        $ <a href="/">cd ~/Index</a> <span class="blink">&#9608;</span>
+      </p>
+    </main>
+
+    <footer>
+      <pre>,___,
+[O.o]
+/)__)
+ -"--"-
+Copyleft &copy; &mdash; <a href="https://github.com/b2a3e8/jekyll-theme-console-demo-dark">source</a></pre>
+    </footer>
+
+  </div>
+</body>
+</html>
