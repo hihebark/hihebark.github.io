@@ -148,6 +148,28 @@ ul li::before { content: '-'; color: var(--green); margin-right: 8px; }
   font-family: Devans, sans-serif;
 }
 
+.hero-name {
+  font-size: 1.25em;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.hero-title {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.hero-bio {
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
 .social {
   margin-top: 16px;
   font-size: 12px;
@@ -230,6 +252,24 @@ ul li::before { content: '-'; color: var(--green); margin-right: 8px; }
 /* ── PORTFOLIO: contact ── */
 .contact { font-size: 13px; }
 .contact a { color: var(--green); }
+.contact-meta {
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+.copy-email {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: var(--font);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 0 0 0 5px;
+  line-height: 1;
+  vertical-align: middle;
+}
+.copy-email:hover { color: var(--green); }
 
 /* ── PROJECTS: cards ── */
 .cards {
@@ -425,6 +465,79 @@ main { animation: page-in 0.45s ease both; }
 }
 .job-meta .now { animation: badge-glow 2.5s ease infinite; }
 
+/* ── BENTO SECTION ── */
+.section-bento {
+  border: 1px solid var(--border-dim);
+}
+.section-bento + .section-bento {
+  margin-top: 32px;
+}
+.section-bento-header {
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--border-dim);
+}
+.section-bento-header .label {
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* ── BENTO GRID ── */
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.bento-grid .card {
+  border: none;
+  border-top: 1px solid var(--border-dim);
+}
+.bento-grid .card:first-child { border-top: none; }
+
+@media (min-width: 601px) {
+  .bento-2 { grid-template-columns: repeat(2, 1fr); }
+  .bento-2.bento-grid .card:nth-child(2) { border-top: none; }
+  .bento-2.bento-grid .card:nth-child(odd) { border-right: 1px solid var(--border-dim); }
+
+  .bento-3 { grid-template-columns: repeat(3, 1fr); }
+  .bento-3.bento-grid .card:nth-child(2),
+  .bento-3.bento-grid .card:nth-child(3) { border-top: none; }
+  .bento-3.bento-grid .card:not(:nth-child(3n)) { border-right: 1px solid var(--border-dim); }
+
+  .bento-2.bento-grid .card.card-span {
+    grid-column: 1 / -1;
+    border-right: none;
+  }
+}
+
+/* ── HERO BENTO ── */
+.hero-bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid var(--border-dim);
+}
+.hero-left {
+  padding: 28px 24px;
+  border-right: 1px solid var(--border-dim);
+}
+.hero-right {
+  position: relative;
+}
+.hero-right .terminal {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  display: flex;
+  flex-direction: column;
+}
+.hero-right .terminal-body {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+  overflow-y: auto;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 600px) {
   main, header, footer { padding-inline: 16px; }
@@ -432,4 +545,6 @@ main { animation: page-in 0.45s ease both; }
   .job-head { flex-direction: column; gap: 4px; }
   .cards { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr 1fr; }
+  .hero-bento { grid-template-columns: 1fr; }
+  .hero-left { border-right: none; border-bottom: 1px solid var(--border-dim); }
 }

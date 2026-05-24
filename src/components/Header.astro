@@ -1,0 +1,16 @@
+---
+const { pathname } = Astro.url;
+const isActive = (path: string) =>
+  path === '/' ? pathname === '/' : pathname.startsWith(path);
+---
+<header>
+  <a href="/" class="logo">
+    <img src="/assets/images/logo2.png" width="90" alt="VirtualStruct">
+    <span>INTO THE WIRED</span>
+  </a>
+  <nav>
+    <a href="/" class:list={{ active: isActive('/') }}>~/Index</a>
+    <a href="/portfolio" class:list={{ active: isActive('/portfolio') }}>~/Portfolio</a>
+    <a href="/projects" class:list={{ active: isActive('/projects') }}>~/Projects</a>
+  </nav>
+</header>

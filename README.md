@@ -4,22 +4,27 @@ Personal portfolio — [hihebark.github.io](https://hihebark.github.io)
 
 ## Stack
 
-Static HTML/CSS/JS. No build step, no framework.
+Astro 5. No UI framework, no Tailwind — custom CSS with all the original animations.
 
-- `index.html` — home page with interactive terminal
-- `portfolio.html` — about, skills, work experience
-- `projects.html` — open source & professional work
-- `404.html` — custom error page
-- `css/style.css` — all styles
-- `js/main.js` — scroll reveal, terminal (autoplay + interactive shell, GitHub API)
+- `src/pages/` — index, portfolio, projects, 404
+- `src/layouts/Layout.astro` — shared HTML shell
+- `src/components/` — Header, Footer
+- `public/css/style.css` — all styles
+- `public/js/main.js` — scroll reveal, terminal (autoplay + interactive shell, GitHub API)
 
 ## Local development
 
 ```bash
-npx serve .
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:3000`.
+Then open `http://localhost:4321`.
+
+## Deploy
+
+Push to `master` — GitHub Actions builds and deploys automatically.
+Requires **Pages source → GitHub Actions** in repo settings.
 
 ## License
 

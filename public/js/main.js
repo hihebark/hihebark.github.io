@@ -3,10 +3,40 @@
 const GH = 'hihebark';
 const delay = ms => new Promise(r => setTimeout(r, ms));
 
+// ── Status clock ────────────────────────────────────
+const clockEl = document.getElementById('status-clock');
+if (clockEl) {
+  const tick = () => {
+    clockEl.textContent = new Date().toLocaleTimeString('en-GB', {
+      hour: '2-digit', minute: '2-digit', second: '2-digit',
+      timeZone: 'Africa/Algiers',
+    });
+  };
+  tick();
+  setInterval(tick, 1000);
+}
+
+// ── Copy email ──────────────────────────────────────
+document.querySelectorAll('.copy-email').forEach(btn => {
+  btn.addEventListener('click', () => {
+    navigator.clipboard.writeText(btn.dataset.email).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = '[copied]';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    }).catch(() => {
+      const orig = btn.textContent;
+      btn.textContent = '[failed]';
+      setTimeout(() => { btn.textContent = orig; }, 2000);
+    });
+  });
+});
+
 // ── Scroll Reveal ──────────────────────────────────
-document.querySelectorAll('.cards .card').forEach((card, i) => {
-  card.classList.add('reveal');
-  card.dataset.delay = `${i * 0.06}s`;
+document.querySelectorAll('.cards, .bento-grid').forEach(grid => {
+  grid.querySelectorAll('.card').forEach((card, i) => {
+    card.classList.add('reveal');
+    card.dataset.delay = `${i * 0.06}s`;
+  });
 });
 
 const revealObs = new IntersectionObserver(entries => {
@@ -83,22 +113,24 @@ if (termEl) {
   // ── Sparkline renderer ──────────────────────────
   function sparkline(weeks = 16) {
     if (!contribs?.contributions) return null;
-    const days = contribs.contributions.slice(-(weeks * 7));
+    const w = Math.min(weeks, Math.floor(contribs.contributions.length / 7));
+    if (w === 0) return null;
+    const days = contribs.contributions.slice(-(w * 7));
     const totals = [];
-    for (let i = 0; i < weeks; i++) {
+    for (let i = 0; i < w; i++) {
       totals.push(days.slice(i * 7, i * 7 + 7).reduce((s, d) => s + d.count, 0));
     }
     const max = Math.max(...totals, 1);
     const bars = ' ▁▂▃▄▅▆▇█';
-    return totals.map(v => bars[Math.round((v / max) * 8)]).join('');
+    return { graph: totals.map(v => bars[Math.round((v / max) * 8)]).join(''), weeks: w };
   }
 
   function contribLines() {
-    const graph = sparkline();
-    if (!graph) return null;
+    const result = sparkline();
+    if (!result) return null;
     const total = contribs.total?.lastYear ?? Object.values(contribs.total ?? {})[0] ?? '?';
     return [
-      `last 16w  <span style="letter-spacing:2px">${graph}</span>`,
+      `last ${result.weeks}w  <span style="letter-spacing:2px">${result.graph}</span>`,
       `total     ${total} contributions this year`,
     ];
   }
@@ -172,7 +204,7 @@ if (termEl) {
       '<a href="https://github.com/hihebark/godirsearch">godirsearch</a> &mdash; web path enumeration tool      [go]',
       '<a href="https://github.com/hihebark/Duxe">duxe</a>        &mdash; recon &amp; info gathering        [go]',
       '',
-      'more &rarr; <a href="/projects.html">~/Projects</a>',
+      'more &rarr; <a href="/projects">~/Projects</a>',
     ]),
     contact: () => out([
       'email    <a href="mailto:n.amara@protonmail.ch">n.amara@protonmail.ch</a>',
@@ -201,15 +233,19 @@ if (termEl) {
     },
   };
 
+  function esc(s) {
+    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
   function handle(cmd) {
     const fn = cmds[cmd];
-    fn ? fn() : out([`command not found: ${cmd} &mdash; type <span class="g">help</span>`]);
+    fn ? fn() : out([`command not found: ${esc(cmd)} &mdash; type <span class="g">help</span>`]);
   }
+
+  let _slashHandler = null;
 
   // ── Autoplay ────────────────────────────────────
   async function autoplay() {
-    const [ghFetch, contribFetch] = [fetchGH(), fetchContribs()];
-
     await delay(500);
 
     await typeLine('whoami');
@@ -219,6 +255,8 @@ if (termEl) {
     ]);
 
     await typeLine(`curl -s api.github.com/users/${GH}`);
+    const ghFetch = fetchGH();
+    const contribFetch = fetchContribs();
     const loading = line('<span class="tdim">fetching...</span>');
     await ghFetch;
     loading.remove();
@@ -245,7 +283,17 @@ if (termEl) {
     await typeLine('echo $STATUS');
     await out(['&#9679; available for collaboration']);
 
+    line('# try: help, skills, projects', 'tdim');
     enableInput();
+
+    if (_slashHandler) document.removeEventListener('keydown', _slashHandler);
+    _slashHandler = e => {
+      if (e.key === '/' && document.activeElement !== inputEl) {
+        e.preventDefault();
+        inputEl.focus();
+      }
+    };
+    document.addEventListener('keydown', _slashHandler);
   }
 
   autoplay();

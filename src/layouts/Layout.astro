@@ -1,0 +1,61 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+  script?: boolean;
+  centered?: boolean;
+}
+
+const {
+  title,
+  description = 'Backend Developer specializing in NestJS, Laravel, and scalable systems.',
+  ogTitle,
+  script = true,
+  centered = false,
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  {ogTitle && <meta property="og:title" content={ogTitle}>}
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content="https://hihebark.github.io/assets/images/logo2.png">
+  <meta property="og:type" content="website">
+  <meta name="author" content="Amara Nezli">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <slot name="head" />
+</head>
+<body>
+  <div class="wrap">
+    <Header />
+    <main class:list={{ centered }}>
+      <slot />
+    </main>
+    <Footer />
+  </div>
+  {script && <script is:inline src="/js/main.js"></script>}
+</body>
+</html>
+
+<style>
+  main.centered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    animation: none;
+    padding-block: 16px;
+  }
+</style>
