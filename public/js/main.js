@@ -3,6 +3,20 @@
 const GH = 'hihebark';
 const delay = ms => new Promise(r => setTimeout(r, ms));
 
+// ── Interactive dots on mouse move ──────────────────
+// Create overlay for interactive effect
+let overlay = document.querySelector('.dot-overlay');
+if (!overlay) {
+  overlay = document.createElement('div');
+  overlay.className = 'dot-overlay';
+  document.body.insertBefore(overlay, document.body.firstChild);
+}
+
+document.addEventListener('mousemove', (e) => {
+  overlay.style.setProperty('--mx', e.clientX + 'px');
+  overlay.style.setProperty('--my', e.clientY + 'px');
+});
+
 // ── Status clock ────────────────────────────────────
 const clockEl = document.getElementById('status-clock');
 if (clockEl) {
@@ -247,43 +261,9 @@ if (termEl) {
   // ── Autoplay ────────────────────────────────────
   async function autoplay() {
     await delay(500);
-
-    await typeLine('whoami');
-    await out([
-      'amara nezli &mdash; backend developer',
-      'nestjs &middot; laravel &middot; node.js &middot; go',
-    ]);
-
-    await typeLine(`curl -s api.github.com/users/${GH}`);
-    const ghFetch = fetchGH();
-    const contribFetch = fetchContribs();
-    const loading = line('<span class="tdim">fetching...</span>');
-    await ghFetch;
-    loading.remove();
-    if (ghData) {
-      await out([
-        `public_repos  ${ghData.public_repos}`,
-        `followers     ${ghData.followers}`,
-        `member since  ${new Date(ghData.created_at).getFullYear()}`,
-      ], 60);
-    } else {
-      await out([`<a href="https://github.com/${GH}">github.com/${GH}</a>`]);
-    }
-
-    const loading2 = line('<span class="tdim">fetching...</span>');
-    await contribFetch;
-    loading2.remove();
-    const cl = contribLines();
-    if (cl) {
-      await out(cl, 60);
-    } else {
-      await out(['contributions unavailable']);
-    }
-
-    await typeLine('echo $STATUS');
-    await out(['&#9679; available for collaboration']);
-
-    line('# try: help, skills, projects', 'tdim');
+    await typeLine('help');
+    await cmds.help();
+    line('', 'tdim');
     enableInput();
 
     if (_slashHandler) document.removeEventListener('keydown', _slashHandler);
