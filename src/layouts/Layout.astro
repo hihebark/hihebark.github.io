@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import avatarHalftone from '../assets/images/avatar.svg';
+import avatarOriginal from '../assets/images/avatar-original.jpg';
+
 interface Props {
   title: string;
   description?: string;
@@ -41,16 +45,13 @@ const isActive = (path: string) =>
 <body>
   <div class="wrap">
     <aside class="sidebar-left">
-      <div class="sidebar-top">
-        <a href="/" class="logo">
-          <div class="avatar-wrap">
-            <img class="avatar-halftone" src="/assets/images/avatar.svg" width="100" alt="Amara Nezli">
-            <img class="avatar-original" src="/assets/images/avatar-original.jpg" width="100" alt="Amara Nezli">
-          </div>
-          <span>INTO THE WIRED</span>
-        </a>
-        <p class="sidebar-name">Amara Nezli</p>
-      </div>
+      <a href="/" class="logo">
+        <div class="avatar-wrap">
+          <Image class="avatar-halftone" src={avatarHalftone} width={160} alt="Amara Nezli" />
+          <Image class="avatar-original" src={avatarOriginal} width={160} alt="Amara Nezli" />
+        </div>
+        <span>INTO THE WIRED</span>
+      </a>
       <div class="sidebar-social">
         <a href="https://github.com/hihebark">Github</a>
         <a href="https://twitter.com/virtualstruct">X</a>

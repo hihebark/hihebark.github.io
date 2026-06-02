@@ -4,18 +4,32 @@ const GH = 'hihebark';
 const delay = ms => new Promise(r => setTimeout(r, ms));
 
 // ── Interactive dots on mouse move ──────────────────
-// Create overlay for interactive effect
-let overlay = document.querySelector('.dot-overlay');
-if (!overlay) {
-  overlay = document.createElement('div');
-  overlay.className = 'dot-overlay';
-  document.body.insertBefore(overlay, document.body.firstChild);
-}
+const overlay = document.createElement('div');
+overlay.className = 'dot-overlay';
+document.body.insertBefore(overlay, document.body.firstChild);
 
+let rafPending = false;
 document.addEventListener('mousemove', (e) => {
-  overlay.style.setProperty('--mx', e.clientX + 'px');
-  overlay.style.setProperty('--my', e.clientY + 'px');
-});
+  if (rafPending) return;
+  rafPending = true;
+  requestAnimationFrame(() => {
+    overlay.style.setProperty('--mx', e.clientX + 'px');
+    overlay.style.setProperty('--my', e.clientY + 'px');
+    rafPending = false;
+  });
+}, { passive: true });
+
+// ── Scroll fade indicator ───────────────────────────
+const mainEl = document.querySelector('main');
+if (mainEl) {
+  const contentCol = mainEl.closest('.content-col');
+  const checkFade = () => {
+    const hasMore = mainEl.scrollTop < mainEl.scrollHeight - mainEl.clientHeight - 4;
+    contentCol?.classList.toggle('has-overflow', hasMore);
+  };
+  mainEl.addEventListener('scroll', checkFade, { passive: true });
+  checkFade();
+}
 
 // ── Status clock ────────────────────────────────────
 const clockEl = document.getElementById('status-clock');
@@ -69,14 +83,19 @@ document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 const termEl = document.querySelector('.terminal');
 if (termEl) {
   const body    = termEl.querySelector('.terminal-body');
+  const mainEl  = termEl.closest('main');
   let ghData    = null;
   let contribs  = null;
+  let ghErr     = null;
+  let contribErr = null;
   let inputWrap = null;
   let inputEl   = null;
   const hist    = [];
   let histIdx   = -1;
 
-  const scroll = () => { body.scrollTop = body.scrollHeight; };
+  const scroll = () => {
+    if (mainEl) mainEl.scrollTop = mainEl.scrollHeight;
+  };
 
   function line(html = '', cls = '') {
     const p = document.createElement('p');
@@ -106,22 +125,33 @@ if (termEl) {
     await delay(90);
   }
 
+  // ── Fetch with 5 s timeout ──────────────────────
+  function fetchWithTimeout(url, ms = 5000) {
+    const ctrl = new AbortController();
+    const id = setTimeout(() => ctrl.abort(), ms);
+    return fetch(url, { signal: ctrl.signal }).finally(() => clearTimeout(id));
+  }
+
   // ── GitHub user fetch ───────────────────────────
   async function fetchGH() {
     try {
-      const res = await fetch(`https://api.github.com/users/${GH}`);
+      const res = await fetchWithTimeout(`https://api.github.com/users/${GH}`);
       const d = await res.json();
       if (!d.message) ghData = d;
-    } catch { /* network error */ }
+    } catch (e) {
+      ghErr = e.name === 'AbortError' ? 'timeout' : 'unavailable';
+    }
   }
 
   // ── Contributions fetch ─────────────────────────
   async function fetchContribs() {
     try {
-      const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${GH}?y=last`);
+      const res = await fetchWithTimeout(`https://github-contributions-api.jogruber.de/v4/${GH}?y=last`);
       const d = await res.json();
       contribs = d;
-    } catch { /* unavailable */ }
+    } catch (e) {
+      contribErr = e.name === 'AbortError' ? 'timeout' : 'unavailable';
+    }
   }
 
   // ── Sparkline renderer ──────────────────────────
@@ -235,9 +265,12 @@ if (termEl) {
           `following     ${ghData.following}`,
           `member since  ${new Date(ghData.created_at).getFullYear()}`,
         );
+      } else if (ghErr) {
+        lines.push(`github api: ${ghErr}`);
       }
       const cl = contribLines();
       if (cl) { lines.push('', ...cl); }
+      else if (contribErr) { lines.push(`contributions: ${contribErr}`); }
       if (!lines.length) lines.push(`<a href="https://github.com/${GH}">github.com/${GH}</a>`);
       else lines.push('', `<a href="https://github.com/${GH}">github.com/${GH}</a>`);
       return out(lines);
@@ -260,10 +293,18 @@ if (termEl) {
 
   // ── Autoplay ────────────────────────────────────
   async function autoplay() {
+    const allFetches = Promise.all([fetchGH(), fetchContribs()]);
     await delay(500);
-    await typeLine('help');
-    await cmds.help();
+    await typeLine('whoami');
+    hist.unshift('whoami');
+    await cmds.whoami();
     line('', 'tdim');
+    await typeLine('github');
+    hist.unshift('github');
+    await allFetches;
+    await cmds.github();
+    line('', 'tdim');
+    line('// interactive &mdash; type <span class="g">help</span> to explore', 'tdim');
     enableInput();
 
     if (_slashHandler) document.removeEventListener('keydown', _slashHandler);
