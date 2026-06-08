@@ -1,6 +1,5 @@
 ---
 import { Image } from 'astro:assets';
-import avatarHalftone from '../assets/images/avatar.svg';
 import avatarOriginal from '../assets/images/avatar-original.jpg';
 
 interface Props {
@@ -43,14 +42,14 @@ const isActive = (path: string) =>
   <slot name="head" />
 </head>
 <body>
+  <div id="crt-cursor"></div>
   <div class="wrap">
     <aside class="sidebar-left">
       <a href="/" class="logo">
         <div class="avatar-wrap">
-          <Image class="avatar-halftone" src={avatarHalftone} width={160} alt="Amara Nezli" />
-          <Image class="avatar-original" src={avatarOriginal} width={160} alt="Amara Nezli" />
+          <Image class="avatar-original" src={avatarOriginal} width={130} loading="eager" alt="Amara Nezli" />
         </div>
-        <span>INTO THE WIRED</span>
+<span>INTO THE WIRED</span>
       </a>
       <div class="sidebar-social">
         <a href="https://github.com/hihebark">Github</a>
@@ -58,6 +57,7 @@ const isActive = (path: string) =>
         <a href="https://www.linkedin.com/in/nezliamara/">LinkedIn</a>
         <a href="https://www.instagram.com/virtualstruct/">Instagram</a>
       </div>
+      <div class="sidebar-pixels"></div>
     </aside>
     <div class="content-col">
       <nav>
@@ -68,6 +68,16 @@ const isActive = (path: string) =>
       <main class:list={{ centered }}>
         <slot />
       </main>
+      <div class="status-line">
+        <span class="status-left">
+          <span class="status-mode">NORMAL</span>
+          <span class="status-path">{pathname === '/' ? '~/Index' : '~' + pathname}</span>
+        </span>
+        <span class="status-right">
+          <span class="status-enc">UTF-8</span>
+          <span id="status-time"></span>
+        </span>
+      </div>
     </div>
   </div>
   {script && <script is:inline src="/js/main.js"></script>}

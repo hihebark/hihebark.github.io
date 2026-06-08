@@ -3,6 +3,207 @@
 const GH = 'hihebark';
 const delay = ms => new Promise(r => setTimeout(r, ms));
 
+// ── Avatar pixel-block dissolve ─────────────────────
+(function initAvatarPixels() {
+  const wrap = document.querySelector('.avatar-wrap');
+  if (!wrap) return;
+  const imgEl = wrap.querySelector('.avatar-original');
+  if (!imgEl) return;
+
+  const COLS = 8, ROWS = 8;
+  const BW = 160 / COLS, BH = 160 / ROWS;
+
+  const overlay = document.createElement('div');
+  overlay.className = 'avatar-pixel-overlay';
+  wrap.appendChild(overlay);
+
+  const blocks = [];
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const el = document.createElement('div');
+      el.className = 'pxb';
+      el.style.left  = (c * BW) + 'px';
+      el.style.top   = (r * BH) + 'px';
+      el.style.width  = BW + 'px';
+      el.style.height = BH + 'px';
+      overlay.appendChild(el);
+      blocks.push({ el, delay: (Math.random() * 0.42).toFixed(3) + 's' });
+    }
+  }
+
+  function applyColors(src) {
+    const canvas = document.createElement('canvas');
+    canvas.width = COLS; canvas.height = ROWS;
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    const img = new Image();
+    img.onload = () => {
+      ctx.drawImage(img, 0, 0, COLS, ROWS);
+      const mix = 0.55; // blend toward #00ff7e
+      blocks.forEach(({ el }, i) => {
+        const [rv, g, b] = ctx.getImageData(i % COLS, Math.floor(i / COLS), 1, 1).data;
+        const r2 = Math.round(rv * (1 - mix));
+        const g2 = Math.round(g  * (1 - mix) + 255 * mix);
+        const b2 = Math.round(b  * (1 - mix) + 126 * mix);
+        el.style.setProperty('--c', `rgb(${r2},${g2},${b2})`);
+      });
+      overlay.style.opacity = '1';
+    };
+    img.src = src;
+  }
+
+  if (imgEl.complete && imgEl.naturalWidth) applyColors(imgEl.src);
+  else imgEl.addEventListener('load', () => applyColors(imgEl.src), { once: true });
+
+  const logo = wrap.closest('.logo');
+  logo.addEventListener('mouseenter', () => {
+    blocks.forEach(({ el, delay }) => {
+      el.style.transitionDelay = delay;
+      el.style.opacity   = '0';
+      el.style.transform = 'scale(0)';
+    });
+  });
+  logo.addEventListener('mouseleave', () => {
+    blocks.forEach(({ el }) => {
+      el.style.transitionDelay = '0s';
+      el.style.opacity   = '1';
+      el.style.transform = 'scale(1)';
+    });
+  });
+})();
+
+// ── Static green smear decoration ─────────────────────
+function mkRand(seed) {
+  let s = seed >>> 0;
+  return () => { s = (Math.imul(s, 1664525) + 1013904223) >>> 0; return s / 0x100000000; };
+}
+
+function drawSmear(canvas, fromTop = false, seed = 1, fromRight = false) {
+  const BLOCK = 10;
+  const W = canvas.width;
+  const H = canvas.height;
+  const ctx = canvas.getContext('2d');
+  const maxRows = Math.ceil(H / BLOCK);
+  const rand = mkRand(seed);
+
+  let x = fromRight ? W : 0;
+  const done = () => fromRight ? x <= 0 : x >= W;
+  while (!done()) {
+    const wBlocks = Math.floor(rand() * 5);
+    if (wBlocks > 0) {
+      const w = fromRight ? Math.min(wBlocks * BLOCK, x) : Math.min(wBlocks * BLOCK, W - x);
+      const rows = Math.max(1, Math.floor(Math.pow(rand(), 0.45) * maxRows));
+      const opacity = 0.2 + rand() * 0.35;
+      const drawX = fromRight ? x - w : x;
+      ctx.fillStyle = `rgba(0,255,126,${opacity})`;
+      ctx.fillRect(drawX, fromTop ? 0 : H - rows * BLOCK, w, rows * BLOCK);
+      if (rand() < 0.35) {
+        ctx.fillStyle = `rgba(0,255,126,${opacity * 0.35})`;
+        ctx.fillRect(drawX, fromTop ? rows * BLOCK : H - (rows + 1) * BLOCK, w, BLOCK);
+      }
+      x += fromRight ? -w : w;
+    } else {
+      x += fromRight ? -BLOCK : BLOCK;
+    }
+  }
+}
+
+(function initSidebarPixels() {
+  const container = document.querySelector('.sidebar-left');
+  if (!container) return;
+  container.style.position = 'relative';
+
+  const W = container.offsetWidth;
+  const H = container.offsetHeight;
+  if (H < 20) return;
+
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;bottom:0;left:0;pointer-events:none;';
+  canvas.width  = W;
+  canvas.height = 65;
+  container.appendChild(canvas);
+  drawSmear(canvas, false, 73);
+
+  const dp = document.querySelector('.sidebar-pixels');
+  if (dp) {
+    const dpCanvas = document.createElement('canvas');
+    dpCanvas.style.cssText = 'position:absolute;top:0;left:0;pointer-events:none;';
+    dpCanvas.width  = dp.offsetWidth;
+    dpCanvas.height = 55;
+    dp.appendChild(dpCanvas);
+    drawSmear(dpCanvas, true, 157);
+  }
+})();
+
+(function initSectionSmear() {
+  const container = document.querySelector('.content-col');
+  if (!container) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;bottom:0;left:0;pointer-events:none;';
+  canvas.width  = container.offsetWidth;
+  canvas.height = 65;
+  container.insertBefore(canvas, container.firstChild);
+  drawSmear(canvas, false, 241);
+})();
+
+(function initSectionTopSmear() {
+  const container = document.querySelector('.content-col');
+  if (!container) return;
+  const canvas = document.createElement('canvas');
+  canvas.style.cssText = 'position:absolute;top:0;right:0;pointer-events:none;';
+  canvas.width  = 200;
+  canvas.height = 60;
+  container.insertBefore(canvas, container.firstChild);
+  drawSmear(canvas, true, 389, true);
+})();
+
+// ── Pixel-block hover (nav + sidebar) ───────────────
+function pixelLinks(selector) {
+  const BLOCK = 8;
+  document.querySelectorAll(selector).forEach(link => {
+    link.innerHTML = `<span class="nav-text">${link.innerHTML}</span>`;
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-pixel-overlay';
+    link.appendChild(overlay);
+    link.classList.add('px-ready');
+
+    const W = link.offsetWidth || 80;
+    const H = link.offsetHeight || 34;
+    const cols = Math.ceil(W / BLOCK);
+    const rows = Math.ceil(H / BLOCK);
+
+    const blocks = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const el = document.createElement('div');
+        el.className = 'nav-pxb';
+        el.style.left   = (c * BLOCK) + 'px';
+        el.style.top    = (r * BLOCK) + 'px';
+        el.style.width  = BLOCK + 'px';
+        el.style.height = BLOCK + 'px';
+        overlay.appendChild(el);
+        blocks.push({ el, delay: (Math.random() * 0.18).toFixed(3) + 's' });
+      }
+    }
+
+    link.addEventListener('mouseenter', () => {
+      blocks.forEach(({ el, delay }) => {
+        el.style.transitionDelay = delay;
+        el.style.opacity   = '1';
+        el.style.transform = 'scale(1)';
+      });
+    });
+    link.addEventListener('mouseleave', () => {
+      blocks.forEach(({ el }) => {
+        el.style.transitionDelay = '0s';
+        el.style.opacity   = '0';
+        el.style.transform = 'scale(0)';
+      });
+    });
+  });
+}
+pixelLinks('nav a:not(.active)');
+pixelLinks('.sidebar-social a');
+
 // ── Interactive dots on mouse move ──────────────────
 const overlay = document.createElement('div');
 overlay.className = 'dot-overlay';
@@ -319,3 +520,90 @@ if (termEl) {
 
   autoplay();
 }
+
+// ── Status line clock ─────────────────────────────────
+(function initStatusClock() {
+  const el = document.getElementById('status-time');
+  if (!el) return;
+  const tick = () => {
+    const d = new Date();
+    el.textContent = d.getHours().toString().padStart(2,'0') + ':' + d.getMinutes().toString().padStart(2,'0');
+  };
+  tick();
+  setInterval(tick, 10000);
+})();
+
+// ── Sidebar hex address decoration ────────────────────
+(function initSidebarHex() {
+  const container = document.querySelector('.sidebar-pixels');
+  if (!container) return;
+
+  const lines = [
+    '0xFF7E00', '0xDEADC0', '0xBEEF42', '0xC0DE99',
+    '0x00FF7E', '0xCAFE01', '0xF00D3E', '0xBADC0D',
+    '0xACE1AF', '0x1337FF',
+  ];
+
+  const el = document.createElement('div');
+  el.style.cssText = [
+    'position:absolute',
+    'top:60px',
+    'left:0',
+    'right:0',
+    'bottom:70px',
+    'display:flex',
+    'flex-direction:column',
+    'justify-content:center',
+    'align-items:center',
+    'gap:6px',
+    'pointer-events:none',
+    'overflow:hidden',
+  ].join(';');
+
+  lines.forEach((addr, i) => {
+    const row = document.createElement('div');
+    row.textContent = addr;
+    row.style.cssText = [
+      'font-family:monospace',
+      'font-size:9px',
+      'letter-spacing:1px',
+      `color:rgba(0,255,126,${0.08 + (i % 3) * 0.04})`,
+      'white-space:nowrap',
+    ].join(';');
+    el.appendChild(row);
+  });
+
+  container.appendChild(el);
+})();
+
+// ── Custom block cursor ────────────────────────────────
+(function initCursor() {
+  const el = document.getElementById('crt-cursor');
+  if (!el) return;
+  document.addEventListener('mousemove', e => {
+    el.style.left = e.clientX + 'px';
+    el.style.top  = e.clientY + 'px';
+  });
+  document.addEventListener('mouseleave', () => el.style.opacity = '0');
+  document.addEventListener('mouseenter', () => el.style.opacity = '');
+})();
+
+// ── Page transitions ───────────────────────────────────
+(function initPageTransitions() {
+  const col = document.querySelector('.content-col');
+  if (!col) return;
+  col.classList.add('page-enter');
+  col.addEventListener('animationend', () => col.classList.remove('page-enter'), { once: true });
+
+  document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      if (link.classList.contains('active')) return;
+      e.preventDefault();
+      const href = link.href;
+      col.style.transition = 'opacity 0.18s ease, transform 0.18s ease';
+      col.style.opacity    = '0';
+      col.style.transform  = 'translateY(-4px)';
+      setTimeout(() => { window.location.href = href; }, 200);
+    });
+  });
+})();
