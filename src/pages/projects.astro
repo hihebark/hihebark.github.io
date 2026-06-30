@@ -2,214 +2,139 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="VirtualStruct &mdash; Projects" ogTitle="VirtualStruct &mdash; Projects"
-  description="Projects by Amara Nezli — open source and professional work.">
+  description="Projects by Amara Nezli — open source and professional work." showBack={true}>
 
-  <!-- Professional -->
-  <div class="section-bento reveal">
-    <div class="section-bento-header">
-      <p class="label">Professional Work</p>
-    </div>
-    <div class="bento-grid bento-2 cards-pro">
+  <div class="bento-page">
+    <div class="bento-grid">
 
-      <div class="card card-pro">
-        <h3>
-          <a href="https://zirak.info" class="card-title-link">Zirak</a>
-          <span class="badge-private">private src</span>
-        </h3>
-        <p>Real-time car-sharing platform with WebSocket-based live tracking and booking.</p>
-        <div class="tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">Laravel</span>
-          <span class="tag">WebSocket</span>
-          <span class="tag">GCP</span>
+      <!-- Header row -->
+      <div class="bcard bcard-full bcard-nav">
+        <span class="bento-page-title">Projects</span>
+      </div>
+
+      <!-- Professional work -->
+      <div class="bcard bcard-full">
+        <span class="bcard-section-title">Professional</span>
+        <div class="project-grid">
+          <div class="exp-entry">
+            <h3><a href="https://zirak.info" class="card-title-link">Zirak</a> <span class="badge-private">private src</span></h3>
+            <p>Real-time car-sharing platform with WebSocket-based live tracking and booking.</p>
+            <div class="stack"><span>Node.js</span><span>Laravel</span><span>WebSocket</span><span>GCP</span></div>
+          </div>
+
+          <div class="exp-entry">
+            <h3><a href="https://docminute.app" class="card-title-link">Docminute</a> <span class="badge-private">private src</span></h3>
+            <p>On-demand doctor consultation platform.</p>
+            <div class="stack"><span>Laravel</span><span>Node.js</span><span>MySQL</span></div>
+          </div>
+
+          <div class="exp-entry">
+            <h3><a href="https://heyu.paris" class="card-title-link">HeyU</a> <span class="badge-private">private src</span></h3>
+            <p>Social discovery app for events and local experiences in Paris.</p>
+            <div class="stack"><span>Laravel</span><span>Node.js</span><span>AWS</span></div>
+          </div>
+
+          <div class="exp-entry">
+            <h3><a href="https://sherpas.com" class="card-title-link">Sherpas</a> <span class="badge-private">private src</span></h3>
+            <p>Tutoring marketplace. Led the legacy code migration and new feature releases.</p>
+            <div class="stack"><span>Laravel</span><span>MySQL</span><span>Docker</span></div>
+          </div>
+
+          <div class="exp-entry">
+            <h3>Gratify <span class="badge-private">private</span></h3>
+            <p>Rewards and loyalty platform built from scratch.</p>
+            <div class="stack"><span>Laravel</span><span>Node.js</span><span>Redis</span></div>
+          </div>
+
+          <div class="exp-entry">
+            <h3>Zer <span class="badge-private">private</span></h3>
+            <p>Internal operations platform.</p>
+            <div class="stack"><span>Node.js</span><span>PostgreSQL</span><span>Docker</span></div>
+          </div>
+
+          <div class="exp-entry">
+            <h3><a href="https://dzvolt.com/en/software/dzvolt-ui" class="card-title-link">DzVolt UI</a> <span class="badge-private">private src</span></h3>
+            <p>Desktop app for monitoring and controlling industrial I/O over Modbus RTU, with real-time browser streaming, role-based access, and tamper-evident audit logging.</p>
+            <div class="stack"><span>Desktop</span><span>Modbus RTU</span><span>Cross-platform</span></div>
+          </div>
         </div>
       </div>
 
-      <div class="card card-pro">
-        <h3>
-          <a href="https://docminute.app" class="card-title-link">Docminute</a>
-          <span class="badge-private">private src</span>
-        </h3>
-        <p>On-demand doctor consultation platform connecting patients with healthcare providers.</p>
-        <div class="tags">
-          <span class="tag">Laravel</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">MySQL</span>
-        </div>
-      </div>
+      <!-- Open source -->
+      <div class="bcard bcard-full">
+        <span class="bcard-section-title">Open Source</span>
+        <div class="project-grid">
+          <div class="exp-entry">
+            <h3><a href="https://hihebark.github.io/appwire/" class="card-title-link">Appwire</a></h3>
+            <p>Live REPL for inspecting a running app — run code against real service instances.</p>
+            <div class="stack"><span>Node.js</span><span>NestJS</span><span>REPL</span></div>
+          </div>
 
-      <div class="card card-pro">
-        <h3>
-          <a href="https://heyu.paris" class="card-title-link">HeyU</a>
-          <span class="badge-private">private src</span>
-        </h3>
-        <p>Social discovery app for events and local experiences in Paris.</p>
-        <div class="tags">
-          <span class="tag">Laravel</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">AWS</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://fanar-app.github.io/" class="card-title-link">Fanar</a></h3>
+            <p>Debugging tool that streams objects, errors, SQL queries, and performance metrics from any runtime to a real-time desktop app.</p>
+            <div class="stack"><span>Debugging</span><span>Desktop</span><span>Open Source</span></div>
+          </div>
 
-      <div class="card card-pro">
-        <h3>
-          <a href="https://sherpas.com" class="card-title-link">Sherpas</a>
-          <span class="badge-private">private src</span>
-        </h3>
-        <p>Tutoring marketplace — led legacy migration and new feature adoption.</p>
-        <div class="tags">
-          <span class="tag">Laravel</span>
-          <span class="tag">MySQL</span>
-          <span class="tag">Docker</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://www.npmjs.com/package/nestjs-query-profiler" class="card-title-link">nestjs-query-profiler</a></h3>
+            <p>NestJS module for profiling database query performance.</p>
+            <div class="stack"><span>NestJS</span><span>TypeScript</span><span>npm</span></div>
+          </div>
 
-      <div class="card card-pro">
-        <h3>
-          Gratify
-          <span class="badge-private">private</span>
-        </h3>
-        <p>Rewards and loyalty platform built from scratch.</p>
-        <div class="tags">
-          <span class="tag">Laravel</span>
-          <span class="tag">Node.js</span>
-          <span class="tag">Redis</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/QuranReader" class="card-title-link">QuranReader</a></h3>
+            <p>Native GNOME application for reading the Quran.</p>
+            <div class="stack"><span>Python</span><span>GTK4</span><span>libadwaita</span></div>
+          </div>
 
-      <div class="card card-pro">
-        <h3>
-          Zer
-          <span class="badge-private">private</span>
-        </h3>
-        <p>Internal operations platform built from the ground up.</p>
-        <div class="tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Docker</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/blocktheid" class="card-title-link">blocktheid</a></h3>
+            <p>Browser extension to block Vercel-hosted websites.</p>
+            <div class="stack"><span>JavaScript</span><span>Browser</span></div>
+          </div>
 
-      <div class="card card-pro card-span">
-        <h3>
-          <a href="https://dzvolt.com/en/software/dzvolt-ui" class="card-title-link">DzVolt UI</a>
-          <span class="badge-private">private src</span>
-        </h3>
-        <p>Desktop application for monitoring and controlling industrial I/O over Modbus RTU, with real-time browser streaming, role-based access, and tamper-evident audit logging.</p>
-        <div class="tags">
-          <span class="tag">Desktop</span>
-          <span class="tag">Modbus RTU</span>
-          <span class="tag">Cross-platform</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/bevor" class="card-title-link">Bevor</a></h3>
+            <p>HTTP request and payload validator.</p>
+            <div class="stack"><span>Go</span><span>Security</span></div>
+          </div>
 
-    </div>
-  </div>
+          <div class="exp-entry">
+            <h3><a href="https://hihebark.github.io/vimd/" class="card-title-link">Vimd</a></h3>
+            <p>In-browser markdown previewer.</p>
+            <div class="stack"><span>JavaScript</span></div>
+          </div>
 
-  <!-- Open Source -->
-  <div class="section-bento reveal">
-    <div class="section-bento-header">
-      <p class="label">Open Source</p>
-    </div>
-    <div class="bento-grid bento-3">
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/Duxe" class="card-title-link">Duxe</a></h3>
+            <p>Information gathering and reconnaissance tool.</p>
+            <div class="stack"><span>Go</span><span>Security</span></div>
+          </div>
 
-      <div class="card">
-        <h3><a href="https://fanar-app.github.io/">Fanar</a></h3>
-        <p>Open-source debugging tool that streams objects, errors, SQL queries, and performance metrics from any runtime to a real-time desktop app.</p>
-        <div class="tags">
-          <span class="tag">Debugging</span>
-          <span class="tag">Desktop</span>
-          <span class="tag">Open Source</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/godirsearch" class="card-title-link">godirsearch</a></h3>
+            <p>Fast directory and path enumeration tool for web targets.</p>
+            <div class="stack"><span>Go</span><span>Security</span></div>
+          </div>
 
-      <div class="card">
-        <h3><a href="https://www.npmjs.com/package/nestjs-query-profiler">nestjs-query-profiler</a></h3>
-        <p>NestJS module for profiling and analyzing database query performance at the application level.</p>
-        <div class="tags">
-          <span class="tag">NestJS</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">npm</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/horcrux-js" class="card-title-link">Horcrux-js</a></h3>
+            <p>Split a file into encrypted shards using Shamir's Secret Sharing.</p>
+            <div class="stack"><span>Node.js</span><span>Cryptography</span></div>
+          </div>
 
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/QuranReader">QuranReader</a></h3>
-        <p>A native GNOME application for reading the Quran.</p>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">GTK4</span>
-          <span class="tag">libadwaita</span>
-        </div>
-      </div>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/dotfiles" class="card-title-link">dotfiles</a></h3>
+            <p>Personal shell and editor configuration files.</p>
+            <div class="stack"><span>Shell</span></div>
+          </div>
 
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/blocktheid">blocktheid</a></h3>
-        <p>Browser extension to block Vercel-hosted websites.</p>
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-          <span class="tag">Browser</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/bevor">Bevor</a></h3>
-        <p>HTTP request and payload validator.</p>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">Security</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://hihebark.github.io/vimd/">Vimd</a></h3>
-        <p>In-browser markdown previewer.</p>
-        <div class="tags">
-          <span class="tag">JavaScript</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/Duxe">Duxe</a></h3>
-        <p>Information gathering and reconnaissance tool.</p>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">Security</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/godirsearch">godirsearch</a></h3>
-        <p>Fast directory and path enumeration tool for web targets.</p>
-        <div class="tags">
-          <span class="tag">Go</span>
-          <span class="tag">Security</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/horcrux-js">Horcrux-js</a></h3>
-        <p>Split a file into encrypted shards using Shamir's Secret Sharing.</p>
-        <div class="tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">Cryptography</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/dotfiles">dotfiles</a></h3>
-        <p>Personal shell and editor configuration files.</p>
-        <div class="tags">
-          <span class="tag">Shell</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3><a href="https://github.com/hihebark/MyScripts">MyScripts</a></h3>
-        <p>Collection of utility scripts for day-to-day automation.</p>
-        <div class="tags">
-          <span class="tag">Shell</span>
-          <span class="tag">Automation</span>
+          <div class="exp-entry">
+            <h3><a href="https://github.com/hihebark/MyScripts" class="card-title-link">MyScripts</a></h3>
+            <p>Collection of utility scripts for day-to-day automation.</p>
+            <div class="stack"><span>Shell</span><span>Automation</span></div>
+          </div>
         </div>
       </div>
 

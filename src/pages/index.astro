@@ -2,13 +2,129 @@
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout title="VirtualStruct" ogTitle="VirtualStruct">
-  <div class="terminal">
-    <div class="terminal-bar">
-      <i></i><i></i><i></i>
-      <span>virtualstruct@portfolio:~$</span>
-    </div>
-    <div class="terminal-body">
+  <div class="hero">
 
+    <div class="hero-text">
+      <h1 class="hero-name">My name is <span class="hero-highlight">Amara</span>.<br>I am a Backend Developer.</h1>
+      <p class="hero-role">NestJS &middot; Laravel &middot; Node.js &middot; Go</p>
+      <div class="hero-actions">
+        <nav class="hero-nav">
+          <a href="/portfolio">Portfolio</a>
+          <a href="/projects">Projects</a>
+        </nav>
+      </div>
+      <div class="hero-contact">
+        <span class="hero-contact-label">Get in touch</span>
+        <a href="mailto:n.amara@protonmail.ch" class="hero-contact-link">n.amara@protonmail.ch</a>
+        <a href="https://github.com/hihebark" class="hero-contact-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/nezliamara/" class="hero-contact-link">LinkedIn</a>
+      </div>
     </div>
-  </div>
+
+    <!-- Islamic geometric medallion — dense multi-layer khatam -->
+    <div class="hero-geo">
+      <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <!-- right-side fade: pattern dissolves into bg on the right -->
+          <linearGradient id="geo-vignette" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%"   stop-color="white" stop-opacity="1"/>
+            <stop offset="55%"  stop-color="white" stop-opacity="1"/>
+            <stop offset="100%" stop-color="white" stop-opacity="0"/>
+          </linearGradient>
+          <mask id="geo-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="360" height="360">
+            <rect width="360" height="360" fill="url(#geo-vignette)"/>
+          </mask>
+
+          <!--
+            Kite petal: between adjacent star tips.
+            Outer apex at 22.5° r≈151, connects both tips and inner valley.
+          -->
+          <path id="k-petal" d="M 0,-120 L 56,-136 L 85,-85 L 19,-46 Z"/>
+
+          <!--
+            Gate V: from each star tip outward to the border ring.
+            Creates the pointed-arch motif at each tip.
+          -->
+          <g id="k-gate">
+            <line x1="0" y1="-120" x2="38"  y2="-143"/>
+            <line x1="0" y1="-120" x2="-38" y2="-143"/>
+          </g>
+        </defs>
+
+        <g mask="url(#geo-mask)">
+          <g transform="translate(180,180)">
+            <g>
+              <animateTransform attributeName="transform" type="rotate"
+                from="0" to="360" dur="120s" repeatCount="indefinite"/>
+
+              <!-- ① outer thick circle border (the medallion frame) -->
+              <circle cx="0" cy="0" r="155" fill="none" stroke="white" stroke-width="3.5"/>
+
+              <!-- ② inner rim of border ring -->
+              <circle cx="0" cy="0" r="143" fill="none" stroke="white" stroke-width="0.7" opacity="0.45"/>
+
+              <!-- ③ 16-gon ring connecting all gate tips (creates star-arch border) -->
+              <polygon fill="none" stroke="white" stroke-width="0.7" opacity="0.5"
+                points="38,-143 74,-128 128,-74 143,-38 143,38 128,74 74,128 38,143
+                        -38,143 -74,128 -128,74 -143,38 -143,-38 -128,-74 -74,-128 -38,-143"/>
+
+              <!-- ④ 8 gate V-arches from each star tip to the border ring -->
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(45)"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(90)"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(135)"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(180)"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(225)"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(270)"/>
+              <use href="#k-gate" fill="none" stroke="white" stroke-width="0.8" opacity="0.7" transform="rotate(315)"/>
+
+              <!-- ⑤ 8 kite petals (interlocking tilework between star tips) -->
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(45)"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(90)"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(135)"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(180)"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(225)"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(270)"/>
+              <use href="#k-petal" fill="none" stroke="white" stroke-width="0.85" opacity="0.6" transform="rotate(315)"/>
+
+              <!-- ⑥ main 8-pointed star — outer r=120, inner r=50 -->
+              <path fill="none" stroke="white" stroke-width="1.4"
+                d="M 0,-120 L 19,-46 L 85,-85 L 46,-19 L 120,0  L 46,19
+                   L 85,85  L 19,46  L 0,120  L -19,46 L -85,85 L -46,19
+                   L -120,0 L -46,-19 L -85,-85 L -19,-46 Z"/>
+
+              <!-- ⑦ secondary 8-star rotated 22.5° — outer r=85, inner r=36
+                   Interlocks with the main star creating 16-fold visual density -->
+              <path fill="none" stroke="white" stroke-width="0.9" opacity="0.75"
+                d="M 0,-36 L 33,-79 L 25,-25 L 79,-33 L 36,0  L 79,33
+                   L 25,25  L 33,79  L 0,36   L -33,79 L -25,25 L -79,33
+                   L -36,0  L -79,-33 L -25,-25 L -33,-79 Z"/>
+
+              <!-- ⑧ inner 8-star — outer r=60, inner r=25 -->
+              <path fill="none" stroke="white" stroke-width="0.8" opacity="0.7"
+                d="M 0,-60 L 10,-23 L 42,-42 L 23,-10 L 60,0  L 23,10
+                   L 42,42  L 10,23  L 0,60   L -10,23 L -42,42 L -23,10
+                   L -60,0  L -23,-10 L -42,-42 L -10,-23 Z"/>
+
+              <!-- ⑨ inner octagon separator -->
+              <polygon fill="none" stroke="white" stroke-width="0.8" opacity="0.7"
+                points="0,-30 21,-21 30,0 21,21 0,30 -21,21 -30,0 -21,-21"/>
+
+              <!-- ⑩ center 8-star rosette — outer r=24, inner r=10 -->
+              <path fill="none" stroke="white" stroke-width="0.75" opacity="0.8"
+                d="M 0,-24 L 4,-9 L 17,-17 L 9,-4 L 24,0  L 9,4
+                   L 17,17  L 4,9   L 0,24   L -4,9  L -17,17 L -9,4
+                   L -24,0  L -9,-4 L -17,-17 L -4,-9 Z"/>
+
+              <!-- ⑪ centre dot -->
+              <circle cx="0" cy="0" r="5" fill="none" stroke="white" stroke-width="0.8" opacity="0.6"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+</div>
+
 </Layout>

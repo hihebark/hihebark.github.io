@@ -1,13 +1,10 @@
 ---
-import { Image } from 'astro:assets';
-import avatarOriginal from '../assets/images/avatar-original.jpg';
-
 interface Props {
   title: string;
   description?: string;
   ogTitle?: string;
   script?: boolean;
-  centered?: boolean;
+  showBack?: boolean;
 }
 
 const {
@@ -15,12 +12,9 @@ const {
   description = 'Backend Developer specializing in NestJS, Laravel, and scalable systems.',
   ogTitle,
   script = true,
-  centered = false,
+  showBack = false,
 } = Astro.props;
 
-const { pathname } = Astro.url;
-const isActive = (path: string) =>
-  path === '/' ? pathname === '/' : pathname.startsWith(path);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -42,55 +36,10 @@ const isActive = (path: string) =>
   <slot name="head" />
 </head>
 <body>
-  <div id="crt-cursor"></div>
-  <div class="wrap">
-    <aside class="sidebar-left">
-      <a href="/" class="logo">
-        <div class="avatar-wrap">
-          <Image class="avatar-original" src={avatarOriginal} width={130} loading="eager" alt="Amara Nezli" />
-        </div>
-<span>INTO THE WIRED</span>
-      </a>
-      <div class="sidebar-social">
-        <a href="https://github.com/hihebark">Github</a>
-        <a href="https://twitter.com/virtualstruct">X</a>
-        <a href="https://www.linkedin.com/in/nezliamara/">LinkedIn</a>
-        <a href="https://www.instagram.com/virtualstruct/">Instagram</a>
-      </div>
-      <div class="sidebar-pixels"></div>
-    </aside>
-    <div class="content-col">
-      <nav>
-        <a href="/" class:list={{ active: isActive('/') }}>~/Index</a>
-        <a href="/portfolio" class:list={{ active: isActive('/portfolio') }}>~/Portfolio</a>
-        <a href="/projects" class:list={{ active: isActive('/projects') }}>~/Projects</a>
-      </nav>
-      <main class:list={{ centered }}>
-        <slot />
-      </main>
-      <div class="status-line">
-        <span class="status-left">
-          <span class="status-mode">NORMAL</span>
-          <span class="status-path">{pathname === '/' ? '~/Index' : '~' + pathname}</span>
-        </span>
-        <span class="status-right">
-          <span class="status-enc">UTF-8</span>
-          <span id="status-time"></span>
-        </span>
-      </div>
-    </div>
-  </div>
-  {script && <script is:inline src="/js/main.js"></script>}
+  <main>
+    <slot />
+  </main>
+
+{script && <script is:inline src="/js/main.js"></script>}
 </body>
 </html>
-
-<style>
-  main.centered {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    animation: none;
-    padding-block: 16px;
-  }
-</style>

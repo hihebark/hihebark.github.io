@@ -1,151 +1,152 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="VirtualStruct &mdash; Portfolio" ogTitle="VirtualStruct &mdash; Portfolio">
+<Layout title="VirtualStruct &mdash; Portfolio" ogTitle="VirtualStruct &mdash; Portfolio" showBack={true}>
 
-  <!-- About -->
-  <div class="section-bento reveal">
-    <div class="section-bento-header"><p class="label">About</p></div>
-    <div class="bento-pad">
-      <p>I am a passionate Backend Developer with over five years of experience working with the Laravel / Node.js framework and a wide range of backend technologies. I specialize in building scalable, secure, and high-performance systems from the ground up, ensuring smooth integration with mobile and web platforms. With hands-on experience in Linux, Docker and API development, I can handle full-cycle software development.</p>
-      <p>I am always exploring new technologies and staying updated with industry trends, ensuring that I deliver optimized and innovative solutions.</p>
-    </div>
-  </div>
+  <div class="bento-page">
+    <div class="bento-grid">
 
-  <!-- Skills -->
-  <div class="section-bento reveal">
-    <div class="section-bento-header"><p class="label">Technical Skills</p></div>
-    <div class="bento-pad">
-      <div class="skills-grid">
-        <div class="skill-group">
-          <h4>Languages</h4>
-          <ul>
-            <li>PHP (Laravel)</li>
-            <li>Node.js / TypeScript</li>
-            <li>Python</li>
-            <li>Go</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h4>Databases</h4>
-          <ul>
-            <li>MySQL</li>
-            <li>PostgreSQL</li>
-            <li>MongoDB</li>
-            <li>Redis</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h4>DevOps</h4>
-          <ul>
-            <li>Docker</li>
-            <li>Linux</li>
-            <li>AWS / GCP</li>
-            <li>CI/CD</li>
-          </ul>
-        </div>
-        <div class="skill-group">
-          <h4>Other</h4>
-          <ul>
-            <li>RESTful APIs</li>
-            <li>WebSockets</li>
-            <li>Git</li>
-            <li>Agile</li>
-          </ul>
-        </div>
+      <!-- Header row -->
+      <div class="bcard bcard-full bcard-nav">
+        <span class="bento-page-title">Portfolio</span>
       </div>
-    </div>
-  </div>
 
-  <!-- Experience -->
-  <div class="section-bento reveal">
-    <div class="section-bento-header"><p class="label">Work Experience</p></div>
-    <div class="bento-pad">
+      <!-- About (2 cols) + Quick info (1 col) -->
+      <div class="bcard bcard-2">
+        <span class="bcard-label">About</span>
+        <p>I am a Backend Developer with five years building REST APIs, real-time platforms, multi-tenant architectures, and CI/CD pipelines.</p>
+        <p>Stack: NestJS, Laravel, Node.js, Go, SQL and NoSQL, Docker, AWS, GCP.</p>
+      </div>
 
-      <div class="job">
-        <div class="job-head">
-          <h3>NestJS Backend Developer at CQR</h3>
-          <div class="job-meta">
-            <span class="now">Present</span>
-            <span>Jun 2026 &ndash;</span>
+      <div class="bcard">
+        <span class="bcard-label">Location</span>
+        <p>Algeria &middot; UTC+1<br>Open to remote</p>
+        <br>
+        <span class="bcard-label">Links</span>
+        <a href="https://github.com/hihebark" class="bcard-link">GitHub</a><br>
+        <a href="https://www.linkedin.com/in/nezliamara/" class="bcard-link">LinkedIn</a><br>
+        <a href="mailto:n.amara@protonmail.ch" class="bcard-link">n.amara@protonmail.ch</a>
+      </div>
+
+      <!-- Skills full-width -->
+      <div class="bcard bcard-full">
+        <span class="bcard-label">Skills</span>
+        <div class="bcard-skills">
+          <div class="bcard-skill-group">
+            <h4>Languages</h4>
+            <ul>
+              <li>PHP (Laravel)</li>
+              <li>Node.js / TypeScript</li>
+              <li>Python</li>
+              <li>Go</li>
+            </ul>
+          </div>
+          <div class="bcard-skill-group">
+            <h4>Databases</h4>
+            <ul>
+              <li>MySQL</li>
+              <li>PostgreSQL</li>
+              <li>MongoDB</li>
+              <li>Redis</li>
+            </ul>
+          </div>
+          <div class="bcard-skill-group">
+            <h4>DevOps</h4>
+            <ul>
+              <li>Docker</li>
+              <li>Linux</li>
+              <li>AWS / GCP</li>
+              <li>CI/CD</li>
+            </ul>
+          </div>
+          <div class="bcard-skill-group">
+            <h4>Other</h4>
+            <ul>
+              <li>RESTful APIs</li>
+              <li>WebSockets</li>
+              <li>Git</li>
+              <li>Agile</li>
+            </ul>
           </div>
         </div>
-        <ul>
-          <li>Architected a multi-tenant REST API with organization-scoped access control and role-based permissions.</li>
-        </ul>
-        <div class="stack">
-          <span>NestJS</span><span>TypeScript</span><span>Keycloak</span><span>Docker</span>
-        </div>
       </div>
 
-      <div class="job">
-        <div class="job-head">
+      <!-- Experience: all entries in one card -->
+      <div class="bcard bcard-full">
+        <span class="bcard-section-title">Experience</span>
+
+        <div class="exp-entry">
+          <span class="bcard-label">CQR &middot; Jun 2026 — Present</span>
+          <h3>NestJS Backend Developer</h3>
+          <ul>
+            <li>Architected a multi-tenant REST API with organization-scoped access control and role-based permissions.</li>
+          </ul>
+          <div class="stack">
+            <span>NestJS</span><span>TypeScript</span><span>Keycloak</span><span>Docker</span>
+          </div>
+        </div>
+
+        <div class="exp-entry">
+          <span class="bcard-label">Freelancing &middot; Jul 2023 — Jun 2026</span>
           <h3>Full-stack Developer</h3>
-          <div class="job-meta">
-            <span>Self-employed</span>
-            <span>??? &ndash; ???</span>
+          <ul>
+            <li>Designed and implemented <a href="https://zirak.info" class="bcard-link">Zirak</a>, a car-sharing app using WebSocket for real-time communication.</li>
+            <li>Built server-side logic in Node.js and Laravel; managed SQL databases.</li>
+            <li>Configured and deployed several applications on GCP and AWS.</li>
+          </ul>
+          <div class="stack">
+            <span>Node.js</span><span>Laravel</span><span>SQL</span><span>WebSocket</span><span>GCP</span><span>AWS</span><span>GNU/Linux</span>
           </div>
         </div>
-        <ul>
-          <li>Designed and implemented a car-sharing application using WebSocket for real-time communication &mdash; <a href="https://zirak.info">Zirak</a>.</li>
-          <li>Utilized Node.js and Laravel to build scalable and secure server-side logic.</li>
-          <li>Managed SQL databases and ensured efficient data handling and retrieval.</li>
-          <li>Configured and deployed several applications end-to-end.</li>
-        </ul>
-        <div class="stack">
-          <span>Node.js</span><span>Laravel</span><span>SQL</span><span>GCP</span><span>WebSocket</span>
+
+        <div class="exp-entry">
+          <span class="bcard-label">Developatic &middot; May 2020 — Jul 2023</span>
+          <h3>Mid-Senior Node.js &amp; Laravel Backend Developer</h3>
+          <ul>
+            <li>Built multiple projects from scratch: <a href="https://docminute.app" class="bcard-link">Docminute</a>, <a href="https://heyu.paris" class="bcard-link">HeyU</a>, Gratify, and Zer.</li>
+            <li>Refactored and migrated legacy code, reducing system downtime by 50% across projects like <a href="https://sherpas.com" class="bcard-link">Sherpas</a>.</li>
+            <li>Built and maintained a CI/CD pipeline, cutting deployment time on each project.</li>
+          </ul>
+          <div class="stack">
+            <span>Node.js</span><span>Laravel</span><span>SQL/NoSQL</span><span>Docker</span><span>AWS</span><span>GCP</span><span>Stripe</span>
+          </div>
+        </div>
+
+        <div class="exp-entry" style="margin-bottom:0">
+          <span class="bcard-label">PiLabs &middot; Jan 2019 — Mar 2020</span>
+          <h3>Junior Node.js Backend Developer</h3>
+          <ul>
+            <li>Designed and developed a POS for automotive spare parts: transactions, inventory, and reporting.</li>
+            <li>Wrote server-side Node.js code; improved response times and reduced failure rates.</li>
+          </ul>
+          <div class="stack">
+            <span>Node.js</span><span>Python</span><span>NoSQL</span><span>AWS IAM</span><span>AWS S3</span>
+          </div>
         </div>
       </div>
 
-      <div class="job">
-        <div class="job-head">
-          <h3>Node.js &amp; Laravel Backend Developer</h3>
-          <div class="job-meta">
-            <span>Developatic</span>
-            <span>??? &ndash; ???</span>
-          </div>
+      <!-- Education + Languages -->
+      <div class="bcard bcard-2">
+        <span class="bcard-section-title">Education</span>
+        <div class="exp-entry">
+          <span class="bcard-label">University Abdelhamid Mehri</span>
+          <h3>Master &middot; Networking &amp; Distributed Systems</h3>
         </div>
-        <ul>
-          <li>Led development of multiple projects from scratch, including <strong>Gratify</strong>, <a href="https://docminute.app">Docminute</a>, <strong>Zer</strong>, and <a href="https://heyu.paris">HeyU</a>.</li>
-          <li>Refactored and migrated legacy code and data, enhancing adoption of new features &mdash; <a href="https://sherpas.com">Sherpas</a>.</li>
-          <li>Spearheaded creation and maintenance of a CI/CD pipeline, reducing time-to-deployment.</li>
-          <li>Integrated 3rd-party APIs including Stripe and built scalable APIs for mobile and web.</li>
-        </ul>
-        <div class="stack">
-          <span>Laravel</span><span>Node.js</span><span>SQL/NoSQL</span><span>Docker</span><span>AWS</span><span>GCP</span>
+        <div class="exp-entry" style="margin-bottom:0">
+          <span class="bcard-label">University Abdelhamid Mehri</span>
+          <h3>Licence &middot; Computer Science</h3>
         </div>
       </div>
 
-      <div class="job">
-        <div class="job-head">
-          <h3>Node.js Backend Developer</h3>
-          <div class="job-meta">
-            <span>Pilabs</span>
-            <span>??? &ndash; ???</span>
-          </div>
-        </div>
+      <div class="bcard">
+        <span class="bcard-section-title">Languages</span>
         <ul>
-          <li>Designed and developed a POS solution for the automotive industry, handling transactions, inventory, and reporting.</li>
+          <li>Arabic &middot; Native</li>
+          <li>French &middot; Professional</li>
+          <li>English &middot; Professional</li>
         </ul>
-        <div class="stack">
-          <span>Node.js</span><span>Python</span><span>AWS IAM</span><span>AWS S3</span><span>NoSQL</span>
-        </div>
       </div>
 
-    </div>
-  </div>
-
-  <!-- Contact -->
-  <div class="section-bento reveal">
-    <div class="section-bento-header"><p class="label">Get In Touch</p></div>
-    <div class="bento-pad">
-      <p class="contact">
-        Always excited to take on new challenges. Reach out via
-        <a href="mailto:n.amara@protonmail.ch">email</a><button class="copy-email" data-email="n.amara@protonmail.ch">[copy]</button>,
-        connect on <a href="https://www.linkedin.com/in/nezliamara/">LinkedIn</a>,
-        or view projects on <a href="https://github.com/hihebark">GitHub</a>.
-      </p>
-      <p class="contact-meta">Algeria &middot; UTC+1 &middot; open to remote</p>
     </div>
   </div>
 
