@@ -4,7 +4,7 @@ interface Props {
   description?: string;
   ogTitle?: string;
   script?: boolean;
-  showBack?: boolean;
+  showNav?: boolean;
 }
 
 const {
@@ -12,8 +12,10 @@ const {
   description = 'Backend Developer specializing in NestJS, Laravel, and scalable systems.',
   ogTitle,
   script = true,
-  showBack = false,
+  showNav = false,
 } = Astro.props;
+
+const { pathname } = Astro.url;
 
 ---
 <!DOCTYPE html>
@@ -28,14 +30,24 @@ const {
   <meta property="og:image" content="https://hihebark.github.io/assets/images/logo2.png">
   <meta property="og:type" content="website">
   <meta name="author" content="Amara Nezli">
+  <link rel="canonical" href={new URL(Astro.url.pathname, 'https://hihebark.github.io')}>
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/SourceCodePro-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
   <slot name="head" />
 </head>
 <body>
+  {showNav && (
+    <nav class="site-nav">
+      <a href="/" class="page-logo">virtualstruct<span class="logo-dot">.</span></a>
+      <div class="site-nav-links">
+        <a href="/portfolio" class:list={{ active: pathname.startsWith('/portfolio') }}>Portfolio</a>
+        <a href="/projects" class:list={{ active: pathname.startsWith('/projects') }}>Projects</a>
+        <a href="/notes" class:list={{ active: pathname.startsWith('/notes') || pathname.startsWith('/case-studies') }}>Notes</a>
+        <a href="mailto:n.amara@protonmail.ch">Contact</a>
+      </div>
+    </nav>
+  )}
   <main>
     <slot />
   </main>

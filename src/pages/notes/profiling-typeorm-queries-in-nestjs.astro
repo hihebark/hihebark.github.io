@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="VirtualStruct — Profiling TypeORM queries in NestJS" ogTitle="Profiling TypeORM queries in NestJS"
+  description="Why slow queries hide in NestJS apps, and how I ended up writing nestjs-query-profiler." showNav={true}>
+
+  <article class="article">
+    <p class="article-kicker">Notes</p>
+    <h1>Profiling TypeORM queries in NestJS</h1>
+    <p class="article-meta">Why slow queries hide in DI-heavy apps, and the tool I wrote about it</p>
+
+    <h2>The problem</h2>
+    <p>NestJS makes it easy to stack repositories, services, and interceptors until no single place in your code issues a query, and no single place sees them all. The endpoint is slow, the code reads fine, and the forty queries hiding behind one innocent <code>relations</code> option stay invisible.</p>
+    <p>TypeORM's built-in answer is <code>logging: true</code>, which prints every statement to stdout. In development that is a firehose you learn to scroll past; in production you turn it off. Neither mode answers the questions that matter: which queries ran for this request, how long did each take, and which ones ran more times than they should have?</p>
+
+    <h2>What you actually want to measure</h2>
+    <ul>
+      <li>Per-query duration, not just the slow-query threshold log.</li>
+      <li>Query count per request: the N+1 signal. Ninety near-identical selects behind one endpoint show up in a count and hide in a log stream.</li>
+      <li>Which entity and which call path produced the query, so the fix lands in the right repository.</li>
+    </ul>
+    <p>TypeORM exposes the hook for all of this: a custom logger receives every query with its parameters and timing. The work is aggregation: grouping by statement shape, attaching counts and durations, and putting the result somewhere you look, instead of a log you don't.</p>
+
+    <h2>The tool</h2>
+    <p>I packaged that aggregation as <a href="https://www.npmjs.com/package/nestjs-query-profiler" target="_blank" rel="noopener">nestjs-query-profiler</a>, a NestJS module that hooks into TypeORM and reports database query performance per request. You register the module, and instead of a stdout firehose you get grouped, timed query profiles you can act on.</p>
+    <p>Setup and options are in the <a href="https://www.npmjs.com/package/nestjs-query-profiler" target="_blank" rel="noopener">package README</a>.</p>
+
+    <h2>What it changed for me</h2>
+    <p>I stopped profiling only after an endpoint got slow enough for someone to complain. Now I glance at query counts while building the feature, when the fix is still a one-line <code>relations</code> change instead of an incident.</p>
+
+    <p class="article-foot"><a href="/projects" class="bcard-link">← Back to projects</a></p>
+  </article>
+
+</Layout>

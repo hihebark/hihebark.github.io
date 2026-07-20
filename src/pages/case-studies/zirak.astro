@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="VirtualStruct — Zirak Case Study" ogTitle="Case Study: Zirak"
+  description="How I built Zirak, a real-time car-sharing platform, as a solo Laravel developer." showNav={true}>
+
+  <article class="article">
+    <p class="article-kicker">Case Study</p>
+    <h1>Zirak — real-time car sharing, built solo</h1>
+    <p class="article-meta">Freelance &middot; 2023 — 2026 &middot; Laravel, WebSocket (Reverb), SQL, self-hosted</p>
+
+    <h2>The problem</h2>
+    <p>A car-sharing service lives or dies on two things: riders need to see where cars are <strong>right now</strong>, and two people must never book the same car for the same slot. HTTP polling gives you stale positions and a chatty mobile client. A naive booking flow gives you double bookings the first week traffic grows.</p>
+
+    <h2>Constraints</h2>
+    <ul>
+      <li>One developer, me, owning backend, infrastructure, and deployment.</li>
+      <li>A client budget that ruled out managed real-time services like Pusher; the platform ran on a dedicated server I provisioned and deployed myself.</li>
+      <li>Mobile clients on unreliable networks, so connections drop and reconnect constantly.</li>
+    </ul>
+
+    <h2>What I built</h2>
+    <p>One <strong>Laravel</strong> application owns the whole platform: accounts, vehicles, bookings, payments, and the admin panel. For the real-time side I stayed inside the framework and used Laravel's broadcasting layer: clients subscribe to channels and receive live vehicle positions and booking state changes over WebSocket.</p>
+    <p>For the WebSocket server itself I started with <strong>beyondcode/laravel-websockets</strong>, a self-hosted Pusher-compatible server, which kept the real-time infrastructure on our own machine instead of a metered third-party service.</p>
+    <p>The SQL database stays the single source of truth. The broadcast layer never owns state. It fans out changes, so a dropped connection costs a client nothing but a resync on reconnect. A database transaction settles each booking conflict, which is what keeps two riders from winning the same car.</p>
+
+    <h2>The migration to Reverb</h2>
+    <p>When Laravel shipped <strong>Reverb</strong> as its first-party WebSocket server, I migrated Zirak off laravel-websockets, which had gone quiet. The app only ever talked to the broadcasting abstraction, never to the server behind it, so the migration touched configuration and infrastructure while channels, events, and clients kept working through the swap.</p>
+
+    <h2>Decisions worth defending</h2>
+    <p><strong>One framework end to end.</strong> As a solo developer, a single Laravel codebase meant one deploy, one queue, one mental model. Adding a second runtime for WebSockets would have doubled the operational surface for a feature the Laravel ecosystem already handled.</p>
+    <p><strong>Self-hosted over managed.</strong> A Pusher-compatible server on a dedicated machine kept costs flat as connections grew, at the price of operating the server myself. At this budget that was the right trade.</p>
+    <p><strong>Buying into the abstraction.</strong> Writing against Laravel's broadcasting contract instead of a specific server is what made the Reverb migration cheap. Nothing in the product code knew which server sat behind it, so replacing the server cost a config change.</p>
+
+    <h2>Outcome</h2>
+    <p>Zirak shipped with live tracking and booking working end to end (<a href="https://zirak.info" target="_blank" rel="noopener">zirak.info</a>). I designed, built, and deployed the platform, dedicated server included, then handed it off. I no longer maintain it.</p>
+
+    <p class="article-foot"><a href="/projects" class="bcard-link">← Back to projects</a></p>
+  </article>
+
+</Layout>

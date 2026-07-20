@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Amara Nezli — CV" ogTitle="Amara Nezli — CV" description="CV of Amara Nezli, Backend Developer." script={false}>
+
+  <div class="cv">
+    <header class="cv-head">
+      <div>
+        <h1>Amara Nezli</h1>
+        <p class="cv-role">Backend Developer &mdash; NestJS &middot; Laravel &middot; Node.js &middot; Go</p>
+      </div>
+      <div class="cv-contact">
+        <a href="mailto:n.amara@protonmail.ch">n.amara@protonmail.ch</a>
+        <a href="https://github.com/hihebark">github.com/hihebark</a>
+        <a href="https://www.linkedin.com/in/nezliamara/">linkedin.com/in/nezliamara</a>
+        <span>Algeria &middot; UTC+1 &middot; Open to remote</span>
+      </div>
+    </header>
+
+    <button class="cv-print" onclick="window.print()">Print / Save as PDF</button>
+
+    <section>
+      <h2>Profile</h2>
+      <p>Backend Developer with seven years building REST APIs, real-time platforms, multi-tenant architectures, and CI/CD pipelines. Stack: NestJS, Laravel, Node.js, Go, SQL and NoSQL, Docker, AWS, GCP.</p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>NestJS Backend Developer &mdash; CQR</h3><span>Jan 2026 — Present</span></div>
+        <ul>
+          <li>Building a multi-tenant SaaS platform where security and compliance teams work in one place. It pulls in live monitoring and detection data and ties it to the governance side: tracking controls, collecting evidence, and generating the reports auditors ask for.</li>
+          <li>Own the backend: a multi-tenant NestJS API with organization-scoped access control and Keycloak permissions.</li>
+        </ul>
+        <p class="cv-stack">NestJS · TypeScript · PostgreSQL · TypeORM · Keycloak · Kibana/Elastic · Docker</p>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>Full-stack Developer &mdash; Freelancing</h3><span>Jul 2023 — Jan 2026</span></div>
+        <ul>
+          <li>Designed and implemented Zirak, a car-sharing app using WebSocket for real-time communication.</li>
+          <li>Built server-side logic in Node.js and Laravel; managed SQL databases.</li>
+          <li>Configured and deployed several applications on GCP and AWS.</li>
+        </ul>
+        <p class="cv-stack">Node.js · Laravel · SQL · WebSocket · GCP · AWS · GNU/Linux</p>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>Mid-Senior Node.js &amp; Laravel Backend Developer &mdash; Developatic</h3><span>May 2020 — Jul 2023</span></div>
+        <ul>
+          <li>Built four production apps from scratch: Docminute, HeyU, Gratify, and Zer.</li>
+          <li>Refactored and migrated legacy code, reducing system downtime by 50% across projects like Sherpas.</li>
+          <li>Built and maintained a CI/CD pipeline, cutting deployment time on each project.</li>
+        </ul>
+        <p class="cv-stack">Node.js · Laravel · SQL/NoSQL · Docker · AWS · GCP · Stripe</p>
+      </div>
+
+      <div class="cv-job">
+        <div class="cv-job-head"><h3>Junior Node.js Backend Developer &mdash; PiLabs</h3><span>Jan 2019 — Mar 2020</span></div>
+        <ul>
+          <li>Designed and developed a POS for automotive spare parts: transactions, inventory, and reporting.</li>
+          <li>Wrote server-side Node.js code; improved response times and reduced failure rates.</li>
+        </ul>
+        <p class="cv-stack">Node.js · Python · NoSQL · AWS IAM · AWS S3</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <p><strong>Languages:</strong> PHP (Laravel), Node.js / TypeScript, Python, Go</p>
+      <p><strong>Databases:</strong> MySQL, PostgreSQL, MongoDB, Redis</p>
+      <p><strong>DevOps:</strong> Docker, Linux, AWS / GCP, CI/CD</p>
+      <p><strong>Other:</strong> RESTful APIs, WebSockets, Git, Agile</p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <div class="cv-job-head"><h3>Master &middot; Networking &amp; Distributed Systems</h3><span>University Abdelhamid Mehri</span></div>
+      <div class="cv-job-head"><h3>Licence &middot; Computer Science</h3><span>University Abdelhamid Mehri</span></div>
+    </section>
+
+    <section>
+      <h2>Languages</h2>
+      <p>Arabic &middot; Native &nbsp;&nbsp; French &middot; Professional &nbsp;&nbsp; English &middot; Professional</p>
+    </section>
+  </div>
+
+</Layout>
+
+<style>
+.cv {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  font-size: 13px;
+}
+.cv-head { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; border-bottom: 2px solid var(--border); padding-bottom: 20px; }
+.cv h1 { font-size: 1.8rem; margin-bottom: 4px; }
+.cv-role { color: var(--muted); }
+.cv-contact { display: flex; flex-direction: column; gap: 2px; font-size: 12px; text-align: right; }
+.cv-contact a { color: var(--muted); text-decoration: none; }
+.cv-contact a:hover { color: var(--text); background: none; }
+.cv-contact span { color: var(--muted); }
+.cv-print {
+  margin-top: 20px;
+  background: var(--text);
+  color: #000;
+  border: 1px solid var(--text);
+  padding: 10px 20px;
+  font-family: var(--font);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.cv-print:hover { background: none; color: var(--text); }
+.cv section { margin-top: 32px; }
+.cv h2 {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.cv-job { margin-bottom: 22px; }
+.cv-job-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 6px; }
+.cv-job-head h3 { font-size: 13px; }
+.cv-job-head span { color: var(--muted); font-size: 12px; }
+.cv-job ul { list-style: none; }
+.cv-job li { padding-left: 14px; position: relative; line-height: 1.7; color: var(--muted); }
+.cv-job li::before { content: '—'; position: absolute; left: 0; opacity: 0.35; }
+.cv-stack { font-size: 11px; color: var(--muted); margin-top: 6px; }
+.cv p { line-height: 1.7; }
+
+@media print {
+  :global(body) { background: #fff !important; color: #000 !important; }
+  :global(body::before), :global(body::after) { display: none !important; }
+  .cv { padding: 0; font-size: 11.5px; max-width: none; }
+  .cv-print { display: none; }
+  .cv h1, .cv-job-head h3 { color: #000; }
+  .cv-role, .cv-contact a, .cv-contact span, .cv h2, .cv-job-head span, .cv-job li, .cv-stack { color: #333; }
+  .cv-head { border-bottom-color: #000; }
+  .cv section { margin-top: 20px; }
+}
+</style>

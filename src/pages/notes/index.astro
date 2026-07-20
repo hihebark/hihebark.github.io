@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="VirtualStruct — Notes" ogTitle="VirtualStruct — Notes"
+  description="Technical notes and write-ups by Amara Nezli." showNav={true}>
+
+  <div class="bento-page">
+    <div class="bento-grid">
+
+      <div class="bcard bcard-full bcard-nav">
+        <h1 class="bento-page-title">Notes</h1>
+      </div>
+
+      <div class="bcard bcard-full">
+        <div class="project-grid exp-list">
+          <div class="exp-entry">
+            <h3><a href="/notes/profiling-typeorm-queries-in-nestjs" class="card-title-link">Profiling TypeORM queries in NestJS</a></h3>
+            <p>Why slow queries hide in DI-heavy apps, and the tool I wrote about it.</p>
+            <div class="stack"><span>NestJS</span><span>TypeORM</span><span>Performance</span></div>
+          </div>
+          <div class="exp-entry">
+            <h3><a href="/case-studies/zirak" class="card-title-link">Zirak — real-time car sharing, built solo</a></h3>
+            <p>Case study: Laravel broadcasting, a self-hosted WebSocket server, and the migration to Reverb.</p>
+            <div class="stack"><span>Laravel</span><span>Reverb</span><span>Case study</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</Layout>

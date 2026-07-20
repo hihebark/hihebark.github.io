@@ -1,36 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 ---
-<Layout title="VirtualStruct &mdash; Portfolio" ogTitle="VirtualStruct &mdash; Portfolio" showBack={true}>
+<Layout title="VirtualStruct &mdash; Portfolio" ogTitle="VirtualStruct &mdash; Portfolio" showNav={true}>
 
   <div class="bento-page">
     <div class="bento-grid">
 
       <!-- Header row -->
       <div class="bcard bcard-full bcard-nav">
-        <span class="bento-page-title">Portfolio</span>
+        <h1 class="bento-page-title">Portfolio</h1>
+        <a href="/cv" class="btn-solid" style="margin-left:auto">Download CV</a>
       </div>
 
-      <!-- About (2 cols) + Quick info (1 col) -->
-      <div class="bcard bcard-2">
+      <!-- About -->
+      <div class="bcard bcard-full">
         <span class="bcard-label">About</span>
-        <p>I am a Backend Developer with five years building REST APIs, real-time platforms, multi-tenant architectures, and CI/CD pipelines.</p>
+        <p>I am a Backend Developer with seven years building REST APIs, real-time platforms, multi-tenant architectures, and CI/CD pipelines.</p>
         <p>Stack: NestJS, Laravel, Node.js, Go, SQL and NoSQL, Docker, AWS, GCP.</p>
-      </div>
-
-      <div class="bcard">
-        <span class="bcard-label">Location</span>
-        <p>Algeria &middot; UTC+1<br>Open to remote</p>
-        <br>
-        <span class="bcard-label">Links</span>
-        <a href="https://github.com/hihebark" class="bcard-link">GitHub</a><br>
-        <a href="https://www.linkedin.com/in/nezliamara/" class="bcard-link">LinkedIn</a><br>
-        <a href="mailto:n.amara@protonmail.ch" class="bcard-link">n.amara@protonmail.ch</a>
       </div>
 
       <!-- Skills full-width -->
       <div class="bcard bcard-full">
-        <span class="bcard-label">Skills</span>
+        <span class="bcard-section-title">01 — Skills</span>
         <div class="bcard-skills">
           <div class="bcard-skill-group">
             <h4>Languages</h4>
@@ -73,24 +64,26 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- Experience: all entries in one card -->
       <div class="bcard bcard-full">
-        <span class="bcard-section-title">Experience</span>
+        <span class="bcard-section-title">02 — Experience</span>
+        <div class="project-grid exp-list">
 
         <div class="exp-entry">
-          <span class="bcard-label">CQR &middot; Jun 2026 — Present</span>
+          <span class="bcard-label">CQR &middot; Jan 2026 — Present</span>
           <h3>NestJS Backend Developer</h3>
           <ul>
-            <li>Architected a multi-tenant REST API with organization-scoped access control and role-based permissions.</li>
+            <li>Building a multi-tenant SaaS platform where security and compliance teams work in one place. It pulls in live monitoring and detection data and ties it to the governance side: tracking controls, collecting evidence, and generating the reports auditors ask for.</li>
+            <li>Own the backend: a multi-tenant NestJS API with organization-scoped access control and Keycloak permissions.</li>
           </ul>
           <div class="stack">
-            <span>NestJS</span><span>TypeScript</span><span>Keycloak</span><span>Docker</span>
+            <span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span><span>TypeORM</span><span>Keycloak</span><span>Kibana/Elastic</span><span>Docker</span>
           </div>
         </div>
 
         <div class="exp-entry">
-          <span class="bcard-label">Freelancing &middot; Jul 2023 — Jun 2026</span>
+          <span class="bcard-label">Freelancing &middot; Jul 2023 — Jan 2026</span>
           <h3>Full-stack Developer</h3>
           <ul>
-            <li>Designed and implemented <a href="https://zirak.info" class="bcard-link">Zirak</a>, a car-sharing app using WebSocket for real-time communication.</li>
+            <li>Designed and implemented <a href="https://zirak.info" class="bcard-link" target="_blank" rel="noopener">Zirak</a>, a car-sharing app using WebSocket for real-time communication.</li>
             <li>Built server-side logic in Node.js and Laravel; managed SQL databases.</li>
             <li>Configured and deployed several applications on GCP and AWS.</li>
           </ul>
@@ -103,8 +96,8 @@ import Layout from '../layouts/Layout.astro';
           <span class="bcard-label">Developatic &middot; May 2020 — Jul 2023</span>
           <h3>Mid-Senior Node.js &amp; Laravel Backend Developer</h3>
           <ul>
-            <li>Built multiple projects from scratch: <a href="https://docminute.app" class="bcard-link">Docminute</a>, <a href="https://heyu.paris" class="bcard-link">HeyU</a>, Gratify, and Zer.</li>
-            <li>Refactored and migrated legacy code, reducing system downtime by 50% across projects like <a href="https://sherpas.com" class="bcard-link">Sherpas</a>.</li>
+            <li>Built four production apps from scratch: <a href="https://docminute.app" class="bcard-link" target="_blank" rel="noopener">Docminute</a>, <a href="https://heyu.paris" class="bcard-link" target="_blank" rel="noopener">HeyU</a>, Gratify, and Zer.</li>
+            <li>Refactored and migrated legacy code, reducing system downtime by 50% across projects like <a href="https://sherpas.com" class="bcard-link" target="_blank" rel="noopener">Sherpas</a>.</li>
             <li>Built and maintained a CI/CD pipeline, cutting deployment time on each project.</li>
           </ul>
           <div class="stack">
@@ -123,28 +116,44 @@ import Layout from '../layouts/Layout.astro';
             <span>Node.js</span><span>Python</span><span>NoSQL</span><span>AWS IAM</span><span>AWS S3</span>
           </div>
         </div>
-      </div>
-
-      <!-- Education + Languages -->
-      <div class="bcard bcard-2">
-        <span class="bcard-section-title">Education</span>
-        <div class="exp-entry">
-          <span class="bcard-label">University Abdelhamid Mehri</span>
-          <h3>Master &middot; Networking &amp; Distributed Systems</h3>
-        </div>
-        <div class="exp-entry" style="margin-bottom:0">
-          <span class="bcard-label">University Abdelhamid Mehri</span>
-          <h3>Licence &middot; Computer Science</h3>
         </div>
       </div>
 
-      <div class="bcard">
-        <span class="bcard-section-title">Languages</span>
-        <ul>
-          <li>Arabic &middot; Native</li>
-          <li>French &middot; Professional</li>
-          <li>English &middot; Professional</li>
-        </ul>
+      <!-- Education -->
+      <div class="bcard bcard-full">
+        <span class="bcard-section-title">03 — Education</span>
+        <div class="project-grid">
+          <div class="exp-entry">
+            <span class="bcard-label">University Abdelhamid Mehri</span>
+            <h3>Master &middot; Networking &amp; Distributed Systems</h3>
+          </div>
+          <div class="exp-entry">
+            <span class="bcard-label">University Abdelhamid Mehri</span>
+            <h3>Licence &middot; Computer Science</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div class="bcard bcard-full">
+        <span class="bcard-section-title">04 — Languages</span>
+        <div class="lang-row">
+          <span>Arabic &middot; Native</span>
+          <span>French &middot; Professional</span>
+          <span>English &middot; Professional</span>
+        </div>
+      </div>
+
+      <!-- Contact / meta -->
+      <div class="bcard bcard-full">
+        <div class="about-meta">
+          <span>Algeria &middot; UTC+1 &middot; Open to remote</span>
+          <span class="about-links">
+            <a href="https://github.com/hihebark" class="bcard-link" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/nezliamara/" class="bcard-link" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:n.amara@protonmail.ch" class="bcard-link">n.amara@protonmail.ch</a>
+          </span>
+        </div>
       </div>
 
     </div>
