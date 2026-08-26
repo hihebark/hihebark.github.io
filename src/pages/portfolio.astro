@@ -1,162 +1,157 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import TermLayout from '../layouts/TermLayout.astro';
+
+const skills = [
+  { label: 'Languages', hue: 'pb', items: 'PHP (Laravel), Node.js / TypeScript, Python, Go' },
+  { label: 'Databases', hue: 'g', items: 'MySQL, PostgreSQL, MongoDB, Redis' },
+  { label: 'DevOps', hue: 't', items: 'Docker, Linux, AWS / GCP, CI/CD' },
+  { label: 'Other', hue: 'y', items: 'RESTful APIs, WebSockets, Git, Agile' },
+];
+
+const experience = [
+  {
+    company: 'CQR', dates: 'Jan 2026 — Present',
+    role: 'NestJS Backend Developer',
+    bullets: [
+      'Building a multi-tenant SaaS platform where security and compliance teams work in one place. It pulls in live monitoring and detection data and ties it to the governance side: tracking controls, collecting evidence, and generating the reports auditors ask for.',
+      'Own the backend: a multi-tenant NestJS API with organization-scoped access control and Keycloak permissions.',
+    ],
+    stack: ['NestJS', 'TypeScript', 'PostgreSQL', 'TypeORM', 'Keycloak', 'Kibana/Elastic', 'Docker'],
+  },
+  {
+    company: 'Freelancing', dates: 'Jul 2023 — Jan 2026',
+    role: 'Full-stack Developer',
+    bullets: [
+      'Designed and implemented Zirak, a car-sharing app using WebSocket for real-time communication.',
+      'Built server-side logic in Node.js and Laravel; managed SQL databases.',
+      'Configured and deployed several applications on GCP and AWS.',
+    ],
+    stack: ['Node.js', 'Laravel', 'SQL', 'WebSocket', 'GCP', 'AWS', 'GNU/Linux'],
+  },
+  {
+    company: 'Developatic', dates: 'May 2020 — Jul 2023',
+    role: 'Mid-Senior Node.js & Laravel Backend Developer',
+    bullets: [
+      'Built four production apps from scratch: Docminute, HeyU, Gratify, and Zer.',
+      'Refactored and migrated legacy code, reducing system downtime by 50% across projects like Sherpas.',
+      'Built and maintained a CI/CD pipeline, cutting deployment time on each project.',
+    ],
+    stack: ['Node.js', 'Laravel', 'SQL/NoSQL', 'Docker', 'AWS', 'GCP', 'Stripe'],
+  },
+  {
+    company: 'PiLabs', dates: 'Jan 2019 — Mar 2020',
+    role: 'Junior Node.js Backend Developer',
+    bullets: [
+      'Designed and developed a POS for automotive spare parts: transactions, inventory, and reporting.',
+      'Wrote server-side Node.js code; improved response times and reduced failure rates.',
+    ],
+    stack: ['Node.js', 'Python', 'NoSQL', 'AWS IAM', 'AWS S3'],
+  },
+];
+
+const education = [
+  { school: 'University Abdelhamid Mehri', degree: 'Master · Networking & Distributed Systems' },
+  { school: 'University Abdelhamid Mehri', degree: 'Licence · Computer Science' },
+];
+
+const languages = [
+  { name: 'Arabic', level: 'Native' },
+  { name: 'French', level: 'Professional' },
+  { name: 'English', level: 'Professional' },
+];
 ---
-<Layout title="VirtualStruct &mdash; Portfolio" ogTitle="VirtualStruct &mdash; Portfolio" showNav={true}>
+<TermLayout
+  title="VirtualStruct — Portfolio"
+  ogTitle="VirtualStruct — Portfolio"
+  description="Backend Developer specializing in NestJS, Laravel, and scalable systems."
+  maxWidth="760px"
+  footerNote="7 years building backend systems"
+>
+  <h1 class="sr-only">Portfolio</h1>
+  <div class="term-tagline">
+    <span class="t-pb">Portfolio</span>
+    <span class="t-rule"></span>
+    <a class="t-y" href="/cv">[ Download CV ]</a>
+  </div>
 
-  <div class="bento-page">
-    <div class="bento-grid">
-
-      <!-- Header row -->
-      <div class="bcard bcard-full bcard-nav">
-        <h1 class="bento-page-title">Portfolio</h1>
-        <a href="/cv" class="btn-solid" style="margin-left:auto">Download CV</a>
-      </div>
-
-      <!-- About -->
-      <div class="bcard bcard-full">
-        <span class="bcard-label">About</span>
-        <p>I am a Backend Developer with seven years building REST APIs, real-time platforms, multi-tenant architectures, and CI/CD pipelines.</p>
-        <p>Stack: NestJS, Laravel, Node.js, Go, SQL and NoSQL, Docker, AWS, GCP.</p>
-      </div>
-
-      <!-- Skills full-width -->
-      <div class="bcard bcard-full">
-        <span class="bcard-section-title">01 — Skills</span>
-        <div class="bcard-skills">
-          <div class="bcard-skill-group">
-            <h4>Languages</h4>
-            <ul>
-              <li>PHP (Laravel)</li>
-              <li>Node.js / TypeScript</li>
-              <li>Python</li>
-              <li>Go</li>
-            </ul>
-          </div>
-          <div class="bcard-skill-group">
-            <h4>Databases</h4>
-            <ul>
-              <li>MySQL</li>
-              <li>PostgreSQL</li>
-              <li>MongoDB</li>
-              <li>Redis</li>
-            </ul>
-          </div>
-          <div class="bcard-skill-group">
-            <h4>DevOps</h4>
-            <ul>
-              <li>Docker</li>
-              <li>Linux</li>
-              <li>AWS / GCP</li>
-              <li>CI/CD</li>
-            </ul>
-          </div>
-          <div class="bcard-skill-group">
-            <h4>Other</h4>
-            <ul>
-              <li>RESTful APIs</li>
-              <li>WebSockets</li>
-              <li>Git</li>
-              <li>Agile</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Experience: all entries in one card -->
-      <div class="bcard bcard-full">
-        <span class="bcard-section-title">02 — Experience</span>
-        <div class="project-grid exp-list">
-
-        <div class="exp-entry">
-          <span class="bcard-label">CQR &middot; Jan 2026 — Present</span>
-          <h3>NestJS Backend Developer</h3>
-          <ul>
-            <li>Building a multi-tenant SaaS platform where security and compliance teams work in one place. It pulls in live monitoring and detection data and ties it to the governance side: tracking controls, collecting evidence, and generating the reports auditors ask for.</li>
-            <li>Own the backend: a multi-tenant NestJS API with organization-scoped access control and Keycloak permissions.</li>
-          </ul>
-          <div class="stack">
-            <span>NestJS</span><span>TypeScript</span><span>PostgreSQL</span><span>TypeORM</span><span>Keycloak</span><span>Kibana/Elastic</span><span>Docker</span>
-          </div>
-        </div>
-
-        <div class="exp-entry">
-          <span class="bcard-label">Freelancing &middot; Jul 2023 — Jan 2026</span>
-          <h3>Full-stack Developer</h3>
-          <ul>
-            <li>Designed and implemented <a href="https://zirak.info" class="bcard-link" target="_blank" rel="noopener">Zirak</a>, a car-sharing app using WebSocket for real-time communication.</li>
-            <li>Built server-side logic in Node.js and Laravel; managed SQL databases.</li>
-            <li>Configured and deployed several applications on GCP and AWS.</li>
-          </ul>
-          <div class="stack">
-            <span>Node.js</span><span>Laravel</span><span>SQL</span><span>WebSocket</span><span>GCP</span><span>AWS</span><span>GNU/Linux</span>
-          </div>
-        </div>
-
-        <div class="exp-entry">
-          <span class="bcard-label">Developatic &middot; May 2020 — Jul 2023</span>
-          <h3>Mid-Senior Node.js &amp; Laravel Backend Developer</h3>
-          <ul>
-            <li>Built four production apps from scratch: <a href="https://docminute.app" class="bcard-link" target="_blank" rel="noopener">Docminute</a>, <a href="https://heyu.paris" class="bcard-link" target="_blank" rel="noopener">HeyU</a>, Gratify, and Zer.</li>
-            <li>Refactored and migrated legacy code, reducing system downtime by 50% across projects like <a href="https://sherpas.com" class="bcard-link" target="_blank" rel="noopener">Sherpas</a>.</li>
-            <li>Built and maintained a CI/CD pipeline, cutting deployment time on each project.</li>
-          </ul>
-          <div class="stack">
-            <span>Node.js</span><span>Laravel</span><span>SQL/NoSQL</span><span>Docker</span><span>AWS</span><span>GCP</span><span>Stripe</span>
-          </div>
-        </div>
-
-        <div class="exp-entry" style="margin-bottom:0">
-          <span class="bcard-label">PiLabs &middot; Jan 2019 — Mar 2020</span>
-          <h3>Junior Node.js Backend Developer</h3>
-          <ul>
-            <li>Designed and developed a POS for automotive spare parts: transactions, inventory, and reporting.</li>
-            <li>Wrote server-side Node.js code; improved response times and reduced failure rates.</li>
-          </ul>
-          <div class="stack">
-            <span>Node.js</span><span>Python</span><span>NoSQL</span><span>AWS IAM</span><span>AWS S3</span>
-          </div>
-        </div>
-        </div>
-      </div>
-
-      <!-- Education -->
-      <div class="bcard bcard-full">
-        <span class="bcard-section-title">03 — Education</span>
-        <div class="project-grid">
-          <div class="exp-entry">
-            <span class="bcard-label">University Abdelhamid Mehri</span>
-            <h3>Master &middot; Networking &amp; Distributed Systems</h3>
-          </div>
-          <div class="exp-entry">
-            <span class="bcard-label">University Abdelhamid Mehri</span>
-            <h3>Licence &middot; Computer Science</h3>
-          </div>
-        </div>
-      </div>
-
-      <!-- Languages -->
-      <div class="bcard bcard-full">
-        <span class="bcard-section-title">04 — Languages</span>
-        <div class="lang-row">
-          <span>Arabic &middot; Native</span>
-          <span>French &middot; Professional</span>
-          <span>English &middot; Professional</span>
-        </div>
-      </div>
-
-      <!-- Contact / meta -->
-      <div class="bcard bcard-full">
-        <div class="about-meta">
-          <span>Algeria &middot; UTC+1 &middot; Open to remote</span>
-          <span class="about-links">
-            <a href="https://github.com/hihebark" class="bcard-link" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://www.linkedin.com/in/nezliamara/" class="bcard-link" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="mailto:n.amara@protonmail.ch" class="bcard-link">n.amara@protonmail.ch</a>
-          </span>
-        </div>
-      </div>
-
+  <div class="term-section">
+    <div class="term-section-title"><span class="t-pb">00 — About</span></div>
+    <div class="term-prose t-t">
+      <p>I am a Backend Developer with seven years building REST APIs, real-time platforms, multi-tenant architectures, and CI/CD pipelines.</p>
+      <p>Stack: NestJS, Laravel, Node.js, Go, SQL and NoSQL, Docker, AWS, GCP.</p>
     </div>
   </div>
 
-</Layout>
+  <div class="term-section">
+    <div class="term-section-title"><span class="t-g">01 — Skills</span></div>
+    <ul class="term-facts">
+      {skills.map((s, i) => (
+        <li class="fact-row">
+          <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+          <span class={`fact-label t-${s.hue}`}>{s.label}</span>
+          <span class="fact-leader" aria-hidden="true"></span>
+          <span class="fact-val t-t">{s.items}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="term-section">
+    <div class="term-section-title"><span class="t-t">02 — Experience</span></div>
+    <ul class="term-facts">
+      {experience.map((e, i) => (
+        <li class="fact-group">
+          <div class="fact-row">
+            <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+            <span class="fact-title t-t">{e.role} <span class="t-gr">— {e.company}</span></span>
+            <span class="fact-leader" aria-hidden="true"></span>
+            <span class="fact-tag t-y">{e.dates}</span>
+          </div>
+          <ul class="term-prose">
+            {e.bullets.map((b) => <li>{b}</li>)}
+          </ul>
+          <div class="term-stack t-gr">
+            {e.stack.map((s) => <span>{s}</span>)}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="term-section">
+    <div class="term-section-title"><span class="t-y">03 — Education</span></div>
+    <ul class="term-facts">
+      {education.map((ed, i) => (
+        <li class="fact-row">
+          <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+          <span class="fact-val t-t">{ed.school}</span>
+          <span class="fact-leader" aria-hidden="true"></span>
+          <span class="fact-tag t-pb">{ed.degree}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="term-section">
+    <div class="term-section-title"><span class="t-pb">04 — Languages</span></div>
+    <ul class="term-facts">
+      {languages.map((l, i) => (
+        <li class="fact-row">
+          <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+          <span class="fact-val t-t">{l.name}</span>
+          <span class="fact-leader" aria-hidden="true"></span>
+          <span class="fact-tag t-y">{l.level}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="term-links">
+    <span class="t-gr">Algeria · UTC+1 · Open to remote</span>
+  </div>
+  <div class="term-links">
+    <a class="t-pb" href="mailto:n.amara@protonmail.ch">[ n.amara@protonmail.ch ]</a>
+    <a class="t-g" href="https://github.com/hihebark" target="_blank" rel="noopener">[ GitHub ]</a>
+    <a class="t-t" href="https://www.linkedin.com/in/nezliamara/" target="_blank" rel="noopener">[ LinkedIn ]</a>
+  </div>
+</TermLayout>

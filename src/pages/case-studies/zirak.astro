@@ -1,13 +1,21 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import TermLayout from '../../layouts/TermLayout.astro';
 ---
-<Layout title="VirtualStruct — Zirak Case Study" ogTitle="Case Study: Zirak"
-  description="How I built Zirak, a real-time car-sharing platform, as a solo Laravel developer." showNav={true}>
+<TermLayout
+  title="VirtualStruct — Zirak Case Study"
+  ogTitle="Case Study: Zirak"
+  description="How I built Zirak, a real-time car-sharing platform, as a solo Laravel developer."
+  maxWidth="720px"
+  footerNote="notes & write-ups"
+>
+  <div class="term-tagline">
+    <span class="t-pb">Case Study</span>
+    <span class="t-rule"></span>
+    <span class="t-t">Freelance &middot; 2023 — 2026 &middot; Laravel, WebSocket (Reverb), SQL, self-hosted</span>
+  </div>
 
-  <article class="article">
-    <p class="article-kicker">Case Study</p>
-    <h1>Zirak — real-time car sharing, built solo</h1>
-    <p class="article-meta">Freelance &middot; 2023 — 2026 &middot; Laravel, WebSocket (Reverb), SQL, self-hosted</p>
+  <article class="term-article">
+    <h1 class="term-article-title">Zirak — real-time car sharing, built solo</h1>
 
     <h2>The problem</h2>
     <p>A car-sharing service lives or dies on two things: riders need to see where cars are <strong>right now</strong>, and two people must never book the same car for the same slot. HTTP polling gives you stale positions and a chatty mobile client. A naive booking flow gives you double bookings the first week traffic grows.</p>
@@ -35,7 +43,6 @@ import Layout from '../../layouts/Layout.astro';
     <h2>Outcome</h2>
     <p>Zirak shipped with live tracking and booking working end to end (<a href="https://zirak.info" target="_blank" rel="noopener">zirak.info</a>). I designed, built, and deployed the platform, dedicated server included, then handed it off. I no longer maintain it.</p>
 
-    <p class="article-foot"><a href="/projects" class="bcard-link">← Back to projects</a></p>
+    <p class="term-article-foot"><a href="/notes">&larr; Back to notes</a></p>
   </article>
-
-</Layout>
+</TermLayout>

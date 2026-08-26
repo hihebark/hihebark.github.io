@@ -1,0 +1,119 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogTitle?: string;
+  maxWidth?: string;
+  footerNote?: string;
+}
+
+const {
+  title,
+  description,
+  ogTitle,
+  maxWidth = '640px',
+  footerNote = 'open to interesting problems',
+} = Astro.props;
+
+const { pathname } = Astro.url;
+const navLinks = [
+  { href: '/', label: 'Home', hue: 'y', exact: true },
+  { href: '/portfolio', label: 'Portfolio', hue: 'pb' },
+  { href: '/projects', label: 'Projects', hue: 'g' },
+  { href: '/notes', label: 'Notes', hue: 't' },
+].filter((l) => l.href !== '/' || pathname !== '/');
+---
+<Layout title={title} description={description} ogTitle={ogTitle}>
+  <div class="term-page">
+    <div class="term-loader" aria-hidden="true">
+      <div class="term-loader-box">
+        <span class="term-corner tc-tl t-pb">╭</span>
+        <span class="term-corner tc-tr t-pb">╮</span>
+        <span class="term-corner tc-bl t-pb">╰</span>
+        <span class="term-corner tc-br t-pb">╯</span>
+      </div>
+    </div>
+
+    <div class="term-frame" style={`max-width: ${maxWidth}`}>
+      <span class="term-corner tc-tl t-pb" aria-hidden="true">╭</span>
+      <span class="term-corner tc-tr t-pb" aria-hidden="true">╮</span>
+      <span class="term-corner tc-bl t-pb" aria-hidden="true">╰</span>
+      <span class="term-corner tc-br t-pb" aria-hidden="true">╯</span>
+
+      <nav class="term-nav">
+        {navLinks.map((l) => (
+          <a class:list={[`t-${l.hue}`, { active: l.exact ? pathname === l.href : pathname.startsWith(l.href) }]} href={l.href}>[ {l.label} ]</a>
+        ))}
+      </nav>
+
+      <div class="term-body">
+        <slot />
+      </div>
+
+      <div class="term-footer">
+        <span class="t-pb">░</span><span class="t-g">▒</span><span class="t-y">▓</span>
+        <span class="t-gr">{footerNote}</span>
+        <span class="t-y">▓</span><span class="t-g">▒</span><span class="t-pb">░</span>
+      </div>
+    </div>
+  </div>
+
+  <noscript>
+    <style>
+      .term-loader { display: none !important; }
+      .term-frame { opacity: 1 !important; }
+    </style>
+  </noscript>
+
+  <script>
+    const loader = document.querySelector('.term-loader') as HTMLElement | null;
+    const box = document.querySelector('.term-loader-box') as HTMLElement | null;
+    const frame = document.querySelector('.term-frame') as HTMLElement | null;
+
+    if (loader && box && frame) {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion) {
+        loader.remove();
+        frame.classList.add('is-open');
+      } else {
+        const startSize = 48;
+        box.style.width = `${startSize}px`;
+        box.style.height = `${startSize}px`;
+        box.style.top = `${window.innerHeight / 2 - startSize / 2}px`;
+        box.style.left = `${window.innerWidth / 2 - startSize / 2}px`;
+
+        // Wait for the wordmark's custom font to finish loading/swapping before
+        // measuring the frame — otherwise the morph target can be sized against
+        // fallback-font metrics and mismatch the real, final frame dimensions.
+        const morph = () => requestAnimationFrame(() => {
+          const rect = frame.getBoundingClientRect();
+          box.style.transition = 'width 0.6s ease, height 0.6s ease, top 0.6s ease, left 0.6s ease';
+          box.style.width = `${rect.width}px`;
+          box.style.height = `${rect.height}px`;
+          box.style.top = `${rect.top}px`;
+          box.style.left = `${rect.left}px`;
+
+          let finished = false;
+          const finish = () => {
+            if (finished) return;
+            finished = true;
+            frame.classList.add('is-open');
+            loader.classList.add('is-hidden');
+            setTimeout(() => loader.remove(), 400);
+          };
+          box.addEventListener('transitionend', finish, { once: true });
+          setTimeout(finish, 900);
+        });
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(morph, morph);
+        } else {
+          morph();
+        }
+      }
+    }
+  </script>
+</Layout>

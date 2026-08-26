@@ -1,130 +1,158 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import TermLayout from '../layouts/TermLayout.astro';
+
+const professional = [
+  {
+    title: 'Zirak', href: 'https://zirak.info', badge: '(private src)',
+    desc: 'Real-time car-sharing platform with WebSocket-based live tracking and booking.',
+    extraHref: '/case-studies/zirak', extraLabel: 'Read the case study',
+    stack: ['Laravel', 'Reverb', 'WebSocket', 'Self-hosted'],
+  },
+  {
+    title: 'Docminute', href: 'https://docminute.app', badge: '(private src)',
+    desc: 'On-demand doctor consultation platform.',
+    stack: ['Laravel', 'Node.js', 'MySQL'],
+  },
+  {
+    title: 'HeyU', href: 'https://heyu.paris', badge: '(private src)',
+    desc: 'Social discovery app for events and local experiences in Paris.',
+    stack: ['Laravel', 'Node.js', 'AWS'],
+  },
+  {
+    title: 'Sherpas', href: 'https://sherpas.com', badge: '(private src)',
+    desc: 'Tutoring marketplace. Led the legacy code migration and new feature releases.',
+    stack: ['Laravel', 'MySQL', 'Docker'],
+  },
+  {
+    title: 'Gratify', badge: '(private)',
+    desc: 'Rewards and loyalty platform built from scratch.',
+    stack: ['Laravel', 'Node.js', 'Redis'],
+  },
+  {
+    title: 'Zer', badge: '(private)',
+    desc: 'Internal operations platform.',
+    stack: ['Node.js', 'PostgreSQL', 'Docker'],
+  },
+  {
+    title: 'DzVolt UI', href: 'https://dzvolt.com/en/software/dzvolt-ui', badge: '(private src)',
+    desc: 'Desktop app for monitoring and controlling industrial I/O over Modbus RTU, with real-time browser streaming, role-based access, and tamper-evident audit logging.',
+    stack: ['Desktop', 'Modbus RTU', 'Cross-platform'],
+  },
+];
+
+const openSource = [
+  {
+    title: 'Appwire', href: 'https://hihebark.github.io/appwire/',
+    desc: 'Live REPL for inspecting a running app — run code against real service instances.',
+    stack: ['Node.js', 'NestJS', 'REPL'],
+  },
+  {
+    title: 'Fanar', href: 'https://fanar-app.github.io/',
+    desc: 'Debugging tool that streams objects, errors, SQL queries, and performance metrics from any runtime to a real-time desktop app.',
+    stack: ['Debugging', 'Desktop', 'Open Source'],
+  },
+  {
+    title: 'nestjs-query-profiler', href: 'https://www.npmjs.com/package/nestjs-query-profiler',
+    desc: 'NestJS module for profiling database query performance.',
+    extraHref: '/notes/profiling-typeorm-queries-in-nestjs', extraLabel: 'Read the write-up',
+    stack: ['NestJS', 'TypeScript', 'npm'],
+  },
+  {
+    title: 'QuranReader', href: 'https://github.com/hihebark/QuranReader',
+    desc: 'Native GNOME application for reading the Quran.',
+    stack: ['Python', 'GTK4', 'libadwaita'],
+  },
+  {
+    title: 'Bevor', href: 'https://github.com/hihebark/bevor',
+    desc: 'HTTP request and payload validator.',
+    stack: ['Go', 'Security'],
+  },
+  {
+    title: 'Duxe', href: 'https://github.com/hihebark/Duxe',
+    desc: 'Information gathering and reconnaissance tool.',
+    stack: ['Go', 'Security'],
+  },
+  {
+    title: 'godirsearch', href: 'https://github.com/hihebark/godirsearch',
+    desc: 'Fast directory and path enumeration tool for web targets.',
+    stack: ['Go', 'Security'],
+  },
+  {
+    title: 'Horcrux-js', href: 'https://github.com/hihebark/horcrux-js',
+    desc: "Split a file into encrypted shards using Shamir's Secret Sharing.",
+    stack: ['Node.js', 'Cryptography'],
+  },
+];
 ---
-<Layout title="VirtualStruct &mdash; Projects" ogTitle="VirtualStruct &mdash; Projects"
-  description="Projects by Amara Nezli — open source and professional work." showNav={true}>
-
-  <div class="bento-page">
-    <div class="bento-grid">
-
-      <!-- Header row -->
-      <div class="bcard bcard-full bcard-nav">
-        <h1 class="bento-page-title">Projects</h1>
-      </div>
-
-      <!-- Professional work -->
-      <div class="bcard bcard-full">
-        <span class="bcard-section-title">01 — Professional</span>
-        <div class="project-grid">
-          <div class="exp-entry">
-            <h3><a href="https://zirak.info" class="card-title-link" target="_blank" rel="noopener">Zirak</a> <span class="badge-private">private src</span></h3>
-            <p>Real-time car-sharing platform with WebSocket-based live tracking and booking. <a href="/case-studies/zirak" class="bcard-link">Read the case study</a></p>
-            <div class="stack"><span>Laravel</span><span>Reverb</span><span>WebSocket</span><span>Self-hosted</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://docminute.app" class="card-title-link" target="_blank" rel="noopener">Docminute</a> <span class="badge-private">private src</span></h3>
-            <p>On-demand doctor consultation platform.</p>
-            <div class="stack"><span>Laravel</span><span>Node.js</span><span>MySQL</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://heyu.paris" class="card-title-link" target="_blank" rel="noopener">HeyU</a> <span class="badge-private">private src</span></h3>
-            <p>Social discovery app for events and local experiences in Paris.</p>
-            <div class="stack"><span>Laravel</span><span>Node.js</span><span>AWS</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://sherpas.com" class="card-title-link" target="_blank" rel="noopener">Sherpas</a> <span class="badge-private">private src</span></h3>
-            <p>Tutoring marketplace. Led the legacy code migration and new feature releases.</p>
-            <div class="stack"><span>Laravel</span><span>MySQL</span><span>Docker</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3>Gratify <span class="badge-private">private</span></h3>
-            <p>Rewards and loyalty platform built from scratch.</p>
-            <div class="stack"><span>Laravel</span><span>Node.js</span><span>Redis</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3>Zer <span class="badge-private">private</span></h3>
-            <p>Internal operations platform.</p>
-            <div class="stack"><span>Node.js</span><span>PostgreSQL</span><span>Docker</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://dzvolt.com/en/software/dzvolt-ui" class="card-title-link" target="_blank" rel="noopener">DzVolt UI</a> <span class="badge-private">private src</span></h3>
-            <p>Desktop app for monitoring and controlling industrial I/O over Modbus RTU, with real-time browser streaming, role-based access, and tamper-evident audit logging.</p>
-            <div class="stack"><span>Desktop</span><span>Modbus RTU</span><span>Cross-platform</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3>Your project here</h3>
-            <p>Have a project in mind? I am open to freelance and remote work.</p>
-            <a href="mailto:n.amara@protonmail.ch" class="btn-solid" style="margin-top:14px">contact me for a project</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Open source -->
-      <div class="bcard bcard-full">
-        <span class="bcard-section-title">02 — Open Source</span>
-        <div class="project-grid">
-          <div class="exp-entry">
-            <h3><a href="https://hihebark.github.io/appwire/" class="card-title-link" target="_blank" rel="noopener">Appwire</a></h3>
-            <p>Live REPL for inspecting a running app — run code against real service instances.</p>
-            <div class="stack"><span>Node.js</span><span>NestJS</span><span>REPL</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://fanar-app.github.io/" class="card-title-link" target="_blank" rel="noopener">Fanar</a></h3>
-            <p>Debugging tool that streams objects, errors, SQL queries, and performance metrics from any runtime to a real-time desktop app.</p>
-            <div class="stack"><span>Debugging</span><span>Desktop</span><span>Open Source</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://www.npmjs.com/package/nestjs-query-profiler" class="card-title-link" target="_blank" rel="noopener">nestjs-query-profiler</a></h3>
-            <p>NestJS module for profiling database query performance. <a href="/notes/profiling-typeorm-queries-in-nestjs" class="bcard-link">Read the write-up</a></p>
-            <div class="stack"><span>NestJS</span><span>TypeScript</span><span>npm</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://github.com/hihebark/QuranReader" class="card-title-link" target="_blank" rel="noopener">QuranReader</a></h3>
-            <p>Native GNOME application for reading the Quran.</p>
-            <div class="stack"><span>Python</span><span>GTK4</span><span>libadwaita</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://github.com/hihebark/bevor" class="card-title-link" target="_blank" rel="noopener">Bevor</a></h3>
-            <p>HTTP request and payload validator.</p>
-            <div class="stack"><span>Go</span><span>Security</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://github.com/hihebark/Duxe" class="card-title-link" target="_blank" rel="noopener">Duxe</a></h3>
-            <p>Information gathering and reconnaissance tool.</p>
-            <div class="stack"><span>Go</span><span>Security</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://github.com/hihebark/godirsearch" class="card-title-link" target="_blank" rel="noopener">godirsearch</a></h3>
-            <p>Fast directory and path enumeration tool for web targets.</p>
-            <div class="stack"><span>Go</span><span>Security</span></div>
-          </div>
-
-          <div class="exp-entry">
-            <h3><a href="https://github.com/hihebark/horcrux-js" class="card-title-link" target="_blank" rel="noopener">Horcrux-js</a></h3>
-            <p>Split a file into encrypted shards using Shamir's Secret Sharing.</p>
-            <div class="stack"><span>Node.js</span><span>Cryptography</span></div>
-          </div>
-
-          <div class="exp-entry grid-more">
-            <a href="https://github.com/hihebark" class="bcard-link" target="_blank" rel="noopener">browse more on my github</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
+<TermLayout
+  title="VirtualStruct — Projects"
+  ogTitle="VirtualStruct — Projects"
+  description="Projects by Amara Nezli — open source and professional work."
+  maxWidth="760px"
+  footerNote="open source & professional work"
+>
+  <h1 class="sr-only">Projects</h1>
+  <div class="term-tagline">
+    <span class="t-pb">Projects</span>
+    <span class="t-rule"></span>
+    <span class="t-t">open source &amp; professional work</span>
   </div>
 
-</Layout>
+  <div class="term-section">
+    <div class="term-section-title">
+      <span class="t-pb">01 — Professional</span>
+    </div>
+    <ul class="term-facts">
+      {professional.map((p, i) => (
+        <li class="fact-group">
+          <div class="fact-row">
+            <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+            {p.href
+              ? <a class="fact-title t-pb" href={p.href} target="_blank" rel="noopener">{p.title}</a>
+              : <span class="fact-title t-pb">{p.title}</span>}
+            {p.badge && <span class="fact-badge t-gr">{p.badge}</span>}
+            <span class="fact-leader" aria-hidden="true"></span>
+          </div>
+          <p class="fact-desc t-t">
+            {p.desc}
+            {p.extraHref && <>{' '}<a class="t-g" href={p.extraHref}>{p.extraLabel}</a></>}
+          </p>
+          <div class="term-stack t-gr">
+            {p.stack.map((s) => <span>{s}</span>)}
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="fact-desc fact-note t-t">
+      Have a project in mind? I'm open to freelance and remote work —
+      <a class="t-y" href="mailto:n.amara@protonmail.ch">[ contact me ]</a>
+    </p>
+  </div>
+
+  <div class="term-section">
+    <div class="term-section-title">
+      <span class="t-g">02 — Open Source</span>
+    </div>
+    <ul class="term-facts">
+      {openSource.map((p, i) => (
+        <li class="fact-group">
+          <div class="fact-row">
+            <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+            <a class="fact-title t-g" href={p.href} target="_blank" rel="noopener">{p.title}</a>
+            <span class="fact-leader" aria-hidden="true"></span>
+          </div>
+          <p class="fact-desc t-t">
+            {p.desc}
+            {p.extraHref && <>{' '}<a class="t-pb" href={p.extraHref}>{p.extraLabel}</a></>}
+          </p>
+          <div class="term-stack t-gr">
+            {p.stack.map((s) => <span>{s}</span>)}
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="fact-desc fact-note t-t">
+      <a class="t-g" href="https://github.com/hihebark" target="_blank" rel="noopener">[ browse more on my GitHub ]</a>
+    </p>
+  </div>
+</TermLayout>

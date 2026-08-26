@@ -1,32 +1,53 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import TermLayout from '../../layouts/TermLayout.astro';
+
+const notes = [
+  {
+    title: 'Profiling TypeORM Queries in NestJS',
+    href: '/notes/profiling-typeorm-queries-in-nestjs',
+    tag: 'notes',
+    hue: 'pb',
+    desc: 'Why slow queries hide in DI-heavy apps, and the tool I wrote about it.',
+    stack: ['NestJS', 'TypeORM', 'Performance'],
+  },
+  {
+    title: 'Zirak — Real-Time Car Sharing, Built Solo',
+    href: '/case-studies/zirak',
+    tag: 'case study',
+    hue: 'g',
+    desc: 'Case study: Laravel broadcasting, a self-hosted WebSocket server, and the migration to Reverb.',
+    stack: ['Laravel', 'Reverb', 'Case study'],
+  },
+];
 ---
-<Layout title="VirtualStruct — Notes" ogTitle="VirtualStruct — Notes"
-  description="Technical notes and write-ups by Amara Nezli." showNav={true}>
-
-  <div class="bento-page">
-    <div class="bento-grid">
-
-      <div class="bcard bcard-full bcard-nav">
-        <h1 class="bento-page-title">Notes</h1>
-      </div>
-
-      <div class="bcard bcard-full">
-        <div class="project-grid exp-list">
-          <div class="exp-entry">
-            <h3><a href="/notes/profiling-typeorm-queries-in-nestjs" class="card-title-link">Profiling TypeORM queries in NestJS</a></h3>
-            <p>Why slow queries hide in DI-heavy apps, and the tool I wrote about it.</p>
-            <div class="stack"><span>NestJS</span><span>TypeORM</span><span>Performance</span></div>
-          </div>
-          <div class="exp-entry">
-            <h3><a href="/case-studies/zirak" class="card-title-link">Zirak — real-time car sharing, built solo</a></h3>
-            <p>Case study: Laravel broadcasting, a self-hosted WebSocket server, and the migration to Reverb.</p>
-            <div class="stack"><span>Laravel</span><span>Reverb</span><span>Case study</span></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+<TermLayout
+  title="VirtualStruct — Notes"
+  ogTitle="VirtualStruct — Notes"
+  description="Technical notes and write-ups by Amara Nezli."
+  maxWidth="720px"
+  footerNote="notes & write-ups"
+>
+  <h1 class="sr-only">Notes</h1>
+  <div class="term-tagline">
+    <span class="t-pb">Notes</span>
+    <span class="t-rule"></span>
+    <span class="t-t">write-ups &amp; case studies</span>
   </div>
 
-</Layout>
+  <ul class="term-facts">
+    {notes.map((n, i) => (
+      <li class="fact-group">
+        <div class="fact-row">
+          <span class="fact-n t-gr">{String(i + 1).padStart(2, '0')}</span>
+          <a class={`fact-title t-${n.hue}`} href={n.href}>{n.title}</a>
+          <span class="fact-leader" aria-hidden="true"></span>
+          <span class="fact-tag t-y">{n.tag}</span>
+        </div>
+        <p class="fact-desc t-t">{n.desc}</p>
+        <div class="term-stack t-gr">
+          {n.stack.map((s) => <span>{s}</span>)}
+        </div>
+      </li>
+    ))}
+  </ul>
+</TermLayout>
